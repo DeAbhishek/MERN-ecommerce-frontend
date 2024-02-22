@@ -1,9 +1,10 @@
 import "./App.css";
+import ProductList from "./features/productList/ProductList";
 
 function App() {
   return (
     <div className="App">
-      <h1 className="bg-red-500 text-4xl">Hello</h1>
+      <ProductList />
     </div>
   );
 }
