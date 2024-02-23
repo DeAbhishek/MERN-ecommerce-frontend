@@ -8,6 +8,7 @@ import {
   PlusIcon,
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
+import Pagination from "./Pagination";
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
@@ -319,6 +320,7 @@ const SidebarFilters = ({ children }) => {
               <div className="lg:col-span-3">{children}</div>
             </div>
           </section>
+          <Pagination />
         </main>
       </div>
     </div>
