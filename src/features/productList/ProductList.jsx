@@ -1,5 +1,5 @@
-import { useSelector, useDispatch } from "react-redux";
-import { increment, incrementAsync, selectCount } from "./ProductListSlice";
+// import { useSelector, useDispatch } from "react-redux";
+// import { increment, incrementAsync, selectCount } from "./ProductListSlice";
 import SidebarFilters from "../../components/SidebarFilters";
 
 const products = [
@@ -36,8 +36,8 @@ const products = [
 ];
 
 export default function ProductList() {
-  const count = useSelector(selectCount);
-  const dispatch = useDispatch();
+  // const count = useSelector(selectCount);
+  // const dispatch = useDispatch();
 
   return (
     <SidebarFilters>
