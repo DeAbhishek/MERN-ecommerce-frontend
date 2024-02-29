@@ -3,9 +3,11 @@ import ProductList from "../features/productList/ProductList";
 
 const Home = () => {
   return (
-    <Navbar>
-      <ProductList />
-    </Navbar>
+    <>
+      <Navbar>
+        <ProductList />
+      </Navbar>
+    </>
   );
 };
 
