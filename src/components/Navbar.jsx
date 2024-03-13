@@ -14,7 +14,7 @@ const user = {
     "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
 };
 const navigation = [
-  { name: "Dashboard", href: "#", current: true },
+  { name: "Home", link: "/", current: true },
   { name: "Team", href: "#", current: false },
 ];
 const userNavigation = [
@@ -46,9 +46,9 @@ const Navbar = ({ children }) => {
                   <div className="hidden md:block">
                     <div className="ml-10 flex items-baseline space-x-4">
                       {navigation.map((item) => (
-                        <a
+                        <Link
                           key={item.name}
-                          href={item.href}
+                          to={item.link}
                           className={classNames(
                             item.current
                               ? "bg-gray-900 text-white"
@@ -58,7 +58,7 @@ const Navbar = ({ children }) => {
                           aria-current={item.current ? "page" : undefined}
                         >
                           {item.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -213,9 +213,9 @@ const Navbar = ({ children }) => {
 
       <header className="bg-white shadow">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+          <Link to={'/'} className="text-3xl font-bold tracking-tight text-gray-900">
             SHOPPER
-          </h1>
+          </Link>
         </div>
       </header>
       <main>
