@@ -34,13 +34,13 @@ export default function ProductList() {
                   <div className="mt-4 flex justify-between">
                     <div>
                       <h3 className="text-sm text-gray-700">
-                        <a href={product.thumbnail}>
+                        <div>
                           <span
                             aria-hidden="true"
                             className="absolute inset-0"
                           />
                           {product.title}
-                        </a>
+                        </div>
                       </h3>
                       <p className="mt-1 text-sm text-gray-500 flex items-center gap-x-1">
                         <StarIcon className="h-6 w-6 inline-block text-yellow-500" />{" "}

@@ -107,15 +107,15 @@ const Navbar = ({ children }) => {
                           {userNavigation.map((item) => (
                             <Menu.Item key={item.name}>
                               {({ active }) => (
-                                <a
-                                  href={item.href}
+                                <Link
+                                  to={item.href}
                                   className={classNames(
                                     active ? "bg-gray-100" : "",
                                     "block px-4 py-2 text-sm text-gray-700"
                                   )}
                                 >
                                   {item.name}
-                                </a>
+                                </Link>
                               )}
                             </Menu.Item>
                           ))}
@@ -213,7 +213,10 @@ const Navbar = ({ children }) => {
 
       <header className="bg-white shadow">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <Link to={'/'} className="text-3xl font-bold tracking-tight text-gray-900">
+          <Link
+            to={"/"}
+            className="text-3xl font-bold tracking-tight text-gray-900"
+          >
             SHOPPER
           </Link>
         </div>

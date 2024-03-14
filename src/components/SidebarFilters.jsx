@@ -13,11 +13,9 @@ import { useDispatch } from "react-redux";
 import { fetchProductsByFilterAsync } from "../features/product/productSlice";
 
 const sortOptions = [
-  { name: "Most Popular", href: "#", current: true },
-  { name: "Best Rating", href: "#", current: false },
-  { name: "Newest", href: "#", current: false },
-  { name: "Price: Low to High", href: "#", current: false },
-  { name: "Price: High to Low", href: "#", current: false },
+  { name: "Best Rating", sort: "rating", order: "desc", current: false },
+  { name: "Price: Low to High", sort: "price", order: "asc", current: false },
+  { name: "Price: High to Low", sort: "price", order: "desc", current: false },
 ];
 
 const filters = [
@@ -193,12 +191,19 @@ const SidebarFilters = ({ children }) => {
   const dispatch = useDispatch();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [filter, setFilter] = useState([]);
+  const [sort, setSort] = useState({});
 
   const handleFilter = (e, section, option) => {
     const newFilter = [...filter, { [section.id]: option.value }];
     setFilter(newFilter);
-    dispatch(fetchProductsByFilterAsync(newFilter));
-    console.log(newFilter);
+    let nwArr = [newFilter, sort];
+    dispatch(fetchProductsByFilterAsync(nwArr));
+  };
+  const handleSort = (sortOption) => {
+    const newSort = `_sort=${sortOption.sort}&_order=${sortOption.order}&`;
+    setSort(newSort);
+    let nwArr = [filter, newSort];
+    dispatch(fetchProductsByFilterAsync(nwArr));
   };
   return (
     <div className="bg-white">
@@ -350,18 +355,18 @@ const SidebarFilters = ({ children }) => {
                       {sortOptions.map((option) => (
                         <Menu.Item key={option.name}>
                           {({ active }) => (
-                            <a
-                              href={option.href}
+                            <p
+                              onClick={(e) => handleSort(option)}
                               className={classNames(
                                 option.current
                                   ? "font-medium text-gray-900"
                                   : "text-gray-500",
                                 active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm"
+                                "block px-4 py-2 text-sm cursor-pointer"
                               )}
                             >
                               {option.name}
-                            </a>
+                            </p>
                           )}
                         </Menu.Item>
                       ))}
