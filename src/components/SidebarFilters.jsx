@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import {
@@ -191,7 +191,7 @@ const SidebarFilters = ({ children }) => {
   const dispatch = useDispatch();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [filter, setFilter] = useState([]);
-  const [sort, setSort] = useState({});
+  const [sort, setSort] = useState("");
 
   const handleFilter = (e, section, option) => {
     let newFilter = [];
@@ -201,15 +201,16 @@ const SidebarFilters = ({ children }) => {
       newFilter = filter.filter((item) => item[section.id] !== option.value);
     }
     setFilter(newFilter);
-    let nwArr = [newFilter, sort];
-    dispatch(fetchProductsByFilterAsync(nwArr));
   };
   const handleSort = (sortOption) => {
     const newSort = `_sort=${sortOption.sort}&_order=${sortOption.order}`;
     setSort(newSort);
-    let nwArr = [filter, newSort];
-    dispatch(fetchProductsByFilterAsync(nwArr));
   };
+
+  useEffect(() => {
+    let nwArr = [filter, sort];
+    dispatch(fetchProductsByFilterAsync(nwArr));
+  }, [dispatch, filter, sort]);
   return (
     <div className="bg-white">
       <div>
