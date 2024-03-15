@@ -6,18 +6,31 @@ import { useEffect } from "react";
 
 const Pagination = ({ page, setPage, sort }) => {
   const totalProducts = useSelector(totalItems);
+  const totalPages = Math.ceil(totalProducts / ITEMS_PER_PAGE);
   useEffect(() => {
     setPage(1);
   }, [setPage, totalProducts, sort]);
   return (
     <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden">
-        <p className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
+        <button
+          className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+          onClick={() => {
+            if (page === 1) return;
+            setPage(page - 1);
+          }}
+        >
           Previous
-        </p>
-        <p className="relative m l-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
+        </button>
+        <button
+          className="relative m l-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+          onClick={() => {
+            if (page === totalPages) return;
+            setPage(page + 1);
+          }}
+        >
           Next
-        </p>
+        </button>
       </div>
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
         <div>
@@ -52,7 +65,7 @@ const Pagination = ({ page, setPage, sort }) => {
             </button>
             {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
             {Array.from({
-              length: Math.ceil(totalProducts / ITEMS_PER_PAGE),
+              length: totalPages,
             }).map((item, index) => (
               <button
                 onClick={() => setPage(index + 1)}
@@ -69,7 +82,7 @@ const Pagination = ({ page, setPage, sort }) => {
             <button
               className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
               onClick={() => {
-                if (page === Math.ceil(totalProducts / ITEMS_PER_PAGE)) return;
+                if (page === totalPages) return;
                 setPage(page + 1);
               }}
             >
