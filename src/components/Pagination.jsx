@@ -40,7 +40,13 @@ const Pagination = ({ page, setPage, sort }) => {
             className="isolate inline-flex -space-x-px rounded-md shadow-sm"
             aria-label="Pagination"
           >
-            <button className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+            <button
+              className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+              onClick={() => {
+                if (page === 1) return;
+                setPage(page - 1);
+              }}
+            >
               <span className="sr-only">Previous</span>
               <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
             </button>
@@ -54,13 +60,19 @@ const Pagination = ({ page, setPage, sort }) => {
                 className={`relative z-10 inline-flex items-center ${
                   page === index + 1
                     ? "bg-indigo-600 text-white"
-                    : "text-gray-400"
+                    : "text-gray-900"
                 } px-4 py-2 text-sm font-semibold  focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:bg-indigo-500`}
               >
                 {index + 1}
               </button>
             ))}
-            <button className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+            <button
+              className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+              onClick={() => {
+                if (page === Math.ceil(totalProducts / ITEMS_PER_PAGE)) return;
+                setPage(page + 1);
+              }}
+            >
               <span className="sr-only">Next</span>
               <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
             </button>
