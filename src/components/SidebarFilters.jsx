@@ -12,7 +12,6 @@ import Pagination from "./Pagination";
 import { useDispatch } from "react-redux";
 import { fetchProductsByFilterAsync } from "../features/product/productSlice";
 import { ITEMS_PER_PAGE } from "../constant";
-import { Link } from "react-router-dom";
 
 const sortOptions = [
   { name: "Best Rating", sort: "rating", order: "desc", current: false },
@@ -205,7 +204,7 @@ const SidebarFilters = ({ children }) => {
     }
     setFilter(newFilter);
   };
-  const handleSort = (e, sortOption) => {
+  const handleSort = (sortOption) => {
     const newSort = `_sort=${sortOption.sort}&_order=${sortOption.order}`;
     setSort(newSort);
   };
@@ -257,7 +256,7 @@ const SidebarFilters = ({ children }) => {
                       {sortOptions.map((option) => (
                         <Menu.Item key={option.name}>
                           {({ active }) => (
-                            <Link
+                            <p
                               onClick={(e) => handleSort(option)}
                               className={classNames(
                                 option.current
@@ -268,7 +267,7 @@ const SidebarFilters = ({ children }) => {
                               )}
                             >
                               {option.name}
-                            </Link>
+                            </p>
                           )}
                         </Menu.Item>
                       ))}
@@ -308,7 +307,7 @@ const SidebarFilters = ({ children }) => {
               <div className="lg:col-span-3">{children}</div>
             </div>
           </section>
-          <Pagination page={page} setPage={setPage} />
+          <Pagination page={page} setPage={setPage} sort={sort} />
         </main>
       </div>
     </div>

@@ -2,9 +2,13 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import { useSelector } from "react-redux";
 import { totalItems } from "../features/product/productSlice";
 import { ITEMS_PER_PAGE } from "../constant";
+import { useEffect } from "react";
 
-const Pagination = ({ page, setPage }) => {
+const Pagination = ({ page, setPage, sort }) => {
   const totalProducts = useSelector(totalItems);
+  useEffect(() => {
+    setPage(1);
+  }, [setPage, totalProducts, sort]);
   return (
     <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden">
