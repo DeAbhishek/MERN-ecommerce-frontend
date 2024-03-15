@@ -18,17 +18,13 @@ export const fetchProductsByFilterAsync = createAsyncThunk(
   "product/fetchProductsByFilter",
   async (nwArr) => {
     let filterString = "";
-    let sortString = "";
     for (let obj of nwArr[0]) {
       filterString += `${Object.keys(obj)[0]}=${obj[Object.keys(obj)[0]]}&`;
     }
     let sort = nwArr[1];
-    // for (let key in sort) {
-    //   sortString += `${key}=${sort[key]}&`;
-    // }
     let url = "http://localhost:8080/products?" + sort + filterString;
-    const response = await axios.get(url);
-    console.log(sortString);
+    const response = await axios.get("http://localhost:8080/products?" + filterString+ sort);
+    console.log(url);
     return response.data;
   }
 );
