@@ -3,7 +3,12 @@ import { StarIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import SidebarFilters from "../../../components/SidebarFilters";
 import { useEffect } from "react";
-import { fetchProductsByFilterAsync, allProducts } from "../productSlice";
+import {
+  fetchProductsByFilterAsync,
+  allProducts,
+  fetchBrandsAsync,
+  fetchCategoriesAsync,
+} from "../productSlice";
 
 export default function ProductList() {
   const products = useSelector(allProducts);
@@ -12,6 +17,8 @@ export default function ProductList() {
   useEffect(() => {
     let nwArr = ["", "", "_page=1&_limit=9"];
     dispatch(fetchProductsByFilterAsync(nwArr));
+    dispatch(fetchBrandsAsync());
+    dispatch(fetchCategoriesAsync());
   }, [dispatch]);
   return (
     <SidebarFilters>

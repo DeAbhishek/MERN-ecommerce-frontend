@@ -3,6 +3,8 @@ import axios from "axios";
 
 const initialState = {
   products: [],
+  categories: [],
+  brands: [],
   totalItems: 0,
   status: "idle",
 };
@@ -33,22 +35,55 @@ export const fetchProductsByFilterAsync = createAsyncThunk(
   }
 );
 
+export const fetchCategoriesAsync = createAsyncThunk(
+  "product/fetchCategories",
+  async () => {
+    const response = await axios.get("http://localhost:8080/categories");
+    return response.data;
+  }
+);
+
+export const fetchBrandsAsync = createAsyncThunk(
+  "product/fetchBrands",
+  async () => {
+    const response = await axios.get("http://localhost:8080/brands");
+    return response.data;
+  }
+);
+
 export const productSlice = createSlice({
   name: "product",
   initialState,
   extraReducers: (builder) => {
-    builder.addCase(fetchProductsByFilterAsync.pending, (state) => {
-      state.status = "loading";
-    });
-    builder.addCase(fetchProductsByFilterAsync.fulfilled, (state, action) => {
-      state.products = action.payload.products;
-      state.totalItems = action.payload.totalItems;
-      state.status = "idle";
-    });
+    builder
+      .addCase(fetchProductsByFilterAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchProductsByFilterAsync.fulfilled, (state, action) => {
+        state.products = action.payload.products;
+        state.totalItems = action.payload.totalItems;
+        state.status = "idle";
+      })
+      .addCase(fetchCategoriesAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchCategoriesAsync.fulfilled, (state, action) => {
+        state.categories = action.payload;
+        state.status = "idle";
+      })
+      .addCase(fetchBrandsAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchBrandsAsync.fulfilled, (state, action) => {
+        state.brands = action.payload;
+        state.status = "idle";
+      });
   },
 });
 
 export const allProducts = (state) => state.product.products;
 export const totalItems = (state) => state.product.totalItems;
+export const allCategories = (state) => state.product.categories;
+export const allBrands = (state) => state.product.brands;
 
 export default productSlice.reducer;
