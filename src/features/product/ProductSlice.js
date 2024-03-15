@@ -6,14 +6,6 @@ const initialState = {
   status: "idle",
 };
 
-export const fetchAllProductsAsync = createAsyncThunk(
-  "product/fetchAllProducts",
-  async () => {
-    const response = await axios.get("http://localhost:8080/products");
-    return response.data;
-  }
-);
-
 export const fetchProductsByFilterAsync = createAsyncThunk(
   "product/fetchProductsByFilter",
   async (nwArr) => {
@@ -23,7 +15,7 @@ export const fetchProductsByFilterAsync = createAsyncThunk(
     }
     let sort = nwArr[1];
     let url = "http://localhost:8080/products?" + sort + filterString;
-    const response = await axios.get("http://localhost:8080/products?" + filterString+ sort);
+    const response = await axios.get("http://localhost:8080/products?" + filterString + sort);
     console.log(url);
     return response.data;
   }
@@ -33,14 +25,6 @@ export const productSlice = createSlice({
   name: "product",
   initialState,
   extraReducers: (builder) => {
-    builder.addCase(fetchAllProductsAsync.pending, (state) => {
-      state.status = "loading";
-    });
-    builder.addCase(fetchAllProductsAsync.fulfilled, (state, action) => {
-      state.products = action.payload;
-      state.status = "idle";
-    });
-
     builder.addCase(fetchProductsByFilterAsync.pending, (state) => {
       state.status = "loading";
     });

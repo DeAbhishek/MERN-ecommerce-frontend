@@ -194,7 +194,6 @@ const SidebarFilters = ({ children }) => {
   const [sort, setSort] = useState({});
 
   const handleFilter = (e, section, option) => {
-    console.log(e.target.checked);
     let newFilter = [];
     if (e.target.checked) {
       newFilter = [...filter, { [section.id]: option.value }];
