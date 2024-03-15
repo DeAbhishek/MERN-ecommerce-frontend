@@ -3,14 +3,14 @@ import { StarIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import SidebarFilters from "../../../components/SidebarFilters";
 import { useEffect } from "react";
-import { fetchProductsByFilterAsync, selectProducts } from "../productSlice";
+import { fetchProductsByFilterAsync, allProducts } from "../productSlice";
 
 export default function ProductList() {
-  const products = useSelector(selectProducts);
+  const products = useSelector(allProducts);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    let nwArr = ["", ""];
+    let nwArr = ["", "", "_page=1&_limit=9"];
     dispatch(fetchProductsByFilterAsync(nwArr));
   }, [dispatch]);
   return (

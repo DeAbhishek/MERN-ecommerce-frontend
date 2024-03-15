@@ -11,6 +11,8 @@ import {
 import Pagination from "./Pagination";
 import { useDispatch } from "react-redux";
 import { fetchProductsByFilterAsync } from "../features/product/productSlice";
+import { ITEMS_PER_PAGE } from "../constant";
+import { Link } from "react-router-dom";
 
 const sortOptions = [
   { name: "Best Rating", sort: "rating", order: "desc", current: false },
@@ -192,6 +194,7 @@ const SidebarFilters = ({ children }) => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [filter, setFilter] = useState([]);
   const [sort, setSort] = useState("");
+  const [page, setPage] = useState(1);
 
   const handleFilter = (e, section, option) => {
     let newFilter = [];
@@ -202,15 +205,16 @@ const SidebarFilters = ({ children }) => {
     }
     setFilter(newFilter);
   };
-  const handleSort = (sortOption) => {
+  const handleSort = (e, sortOption) => {
     const newSort = `_sort=${sortOption.sort}&_order=${sortOption.order}`;
     setSort(newSort);
   };
 
   useEffect(() => {
-    let nwArr = [filter, sort];
+    let pageLimit = `_page=${page}&_limit=${ITEMS_PER_PAGE}`;
+    let nwArr = [filter, sort, pageLimit];
     dispatch(fetchProductsByFilterAsync(nwArr));
-  }, [dispatch, filter, sort]);
+  }, [dispatch, filter, sort, page]);
   return (
     <div className="bg-white">
       <div>
@@ -253,7 +257,7 @@ const SidebarFilters = ({ children }) => {
                       {sortOptions.map((option) => (
                         <Menu.Item key={option.name}>
                           {({ active }) => (
-                            <p
+                            <Link
                               onClick={(e) => handleSort(option)}
                               className={classNames(
                                 option.current
@@ -264,7 +268,7 @@ const SidebarFilters = ({ children }) => {
                               )}
                             >
                               {option.name}
-                            </p>
+                            </Link>
                           )}
                         </Menu.Item>
                       ))}
@@ -304,7 +308,7 @@ const SidebarFilters = ({ children }) => {
               <div className="lg:col-span-3">{children}</div>
             </div>
           </section>
-          <Pagination />
+          <Pagination page={page} setPage={setPage} />
         </main>
       </div>
     </div>
