@@ -5,6 +5,7 @@ const initialState = {
   products: [],
   categories: [],
   brands: [],
+  details: {},
   totalItems: 0,
   status: "idle",
 };
@@ -51,6 +52,15 @@ export const fetchBrandsAsync = createAsyncThunk(
   }
 );
 
+export const fetchProductDetailsByIdAsync = createAsyncThunk(
+  "product/fetchProductDetailsById",
+  async (id) => {
+    const response = await axios.get("http://localhost:8080/products/" + id);
+    console.log(response.data);
+    return response.data;
+  }
+);
+
 export const productSlice = createSlice({
   name: "product",
   initialState,
@@ -77,6 +87,13 @@ export const productSlice = createSlice({
       .addCase(fetchBrandsAsync.fulfilled, (state, action) => {
         state.brands = action.payload;
         state.status = "idle";
+      })
+      .addCase(fetchProductDetailsByIdAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchProductDetailsByIdAsync.fulfilled, (state, action) => {
+        state.details = action.payload;
+        state.status = "idle";
       });
   },
 });
@@ -85,5 +102,6 @@ export const allProducts = (state) => state.product.products;
 export const totalItems = (state) => state.product.totalItems;
 export const allCategories = (state) => state.product.categories;
 export const allBrands = (state) => state.product.brands;
+export const selectedProductDetails = (state) => state.product.details;
 
 export default productSlice.reducer;

@@ -29,7 +29,7 @@ const router = createBrowserRouter([
     element: <Checkout />,
   },
   {
-    path: "/product-details",
+    path: "/product-details/:id",
     element: <ProductDetailsPage />,
   },
 ]);
