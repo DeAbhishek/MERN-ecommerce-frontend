@@ -2339,6 +2339,16 @@
       "email": "aaaa@ga.com",
       "password": "Mitali123@",
       "id": 1
+    },
+    {
+      "email": "metiist.digital@gmail.com",
+      "password": "Mitali123@",
+      "id": 2
+    },
+    {
+      "email": "ggg@gmail.com",
+      "password": "Qwertyuiop1234567890@",
+      "id": 3
     }
   ]
 }
