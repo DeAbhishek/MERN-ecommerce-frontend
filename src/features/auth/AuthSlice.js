@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import { checkUser, createUser } from "./authAPI";
 
 const initialState = {
   loggedInUser: null,
@@ -7,38 +7,12 @@ const initialState = {
   status: "idle",
 };
 
-const USER_URL = "http://localhost:8080/users";
-
-export const createUserAsync = createAsyncThunk(
-  "user/createUser",
-  async (userData) => {
-    const response = await axios.post(USER_URL, {
-      email: userData.email,
-      password: userData.password,
-    });
-    return response.data;
-  }
+export const createUserAsync = createAsyncThunk("user/createUser", (userData) =>
+  createUser(userData)
 );
 
-export const checkUserAsync = createAsyncThunk(
-  "user/checkUser",
-  async (logInData) => {
-    let email = logInData.email;
-    let password = logInData.password;
-
-    const response = await axios
-      .get(`${USER_URL}?email=${email}`)
-      .then((res) =>
-        res.data.length
-          ? res.data[0].password === password
-            ? { email: res.data[0].email }
-            : "Invalid Credentials"
-          : "User Not Found"
-      )
-      .catch((error) => error);
-
-    return response;
-  }
+export const checkUserAsync = createAsyncThunk("user/checkUser", (logInData) =>
+  checkUser(logInData)
 );
 
 export const authSlice = createSlice({

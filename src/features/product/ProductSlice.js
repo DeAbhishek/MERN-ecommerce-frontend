@@ -1,5 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import {
+  fetchBrands,
+  fetchCategories,
+  fetchProductDetailsById,
+  fetchProductsByFilter,
+} from "./productAPI";
 
 const initialState = {
   products: [],
@@ -12,53 +17,21 @@ const initialState = {
 
 export const fetchProductsByFilterAsync = createAsyncThunk(
   "product/fetchProductsByFilter",
-  async (nwArr) => {
-    let filterString = "";
-    let totalItemsQueryString = "";
-    for (let obj of nwArr[0]) {
-      filterString += `${Object.keys(obj)[0]}=${obj[Object.keys(obj)[0]]}&`;
-      totalItemsQueryString += `${Object.keys(obj)[0]}=${
-        obj[Object.keys(obj)[0]]
-      }&`;
-    }
-    let sortString = nwArr[1];
-    let pageString = nwArr[2];
-    const response1 = await axios.get(
-      `http://localhost:8080/products?${pageString}&${sortString}&${filterString}`
-    );
-    const response2 = await axios.get(
-      "http://localhost:8080/products?" + totalItemsQueryString
-    );
-    return {
-      products: response1.data,
-      totalItems: response2.data.length,
-    };
-  }
+  (nwArr) => fetchProductsByFilter(nwArr)
 );
 
 export const fetchCategoriesAsync = createAsyncThunk(
   "product/fetchCategories",
-  async () => {
-    const response = await axios.get("http://localhost:8080/categories");
-    return response.data;
-  }
+  () => fetchCategories()
 );
 
-export const fetchBrandsAsync = createAsyncThunk(
-  "product/fetchBrands",
-  async () => {
-    const response = await axios.get("http://localhost:8080/brands");
-    return response.data;
-  }
+export const fetchBrandsAsync = createAsyncThunk("product/fetchBrands", () =>
+  fetchBrands()
 );
 
 export const fetchProductDetailsByIdAsync = createAsyncThunk(
   "product/fetchProductDetailsById",
-  async (id) => {
-    const response = await axios.get("http://localhost:8080/products/" + id);
-    console.log(response.data);
-    return response.data;
-  }
+  (id) => fetchProductDetailsById(id)
 );
 
 export const productSlice = createSlice({
