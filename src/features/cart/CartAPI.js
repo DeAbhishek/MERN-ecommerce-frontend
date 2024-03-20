@@ -1,8 +1,26 @@
-// A mock function to mimic making an async request for data
-export function fetchCount(amount = 1) {
-  return new Promise(async (resolve) => {
-    const response = await fetch("http://localhost:8080");
-    const data = await response.json();
-    resolve({ data });
-  });
-}
+import axios from "axios";
+
+const CART_URL = "http://localhost:8080/cart";
+
+export const addToCart = async (item) => {
+  const response = await axios.post(CART_URL, item);
+  return response.data;
+};
+
+export const fetchItemsByUserId = async (userId) => {
+  const response = await axios.get(`${CART_URL}?user=${userId}`);
+  return response.data;
+};
+
+export const updateCart = async (updatedItem) => {
+  const response = await axios.put(
+    `${CART_URL}/${updatedItem.id}`,
+    updatedItem
+  );
+  return response.data;
+};
+
+export const deleteItemFromCart = async (itemId) => {
+  await axios.delete(`${CART_URL}/${itemId}`);
+  return itemId;
+};

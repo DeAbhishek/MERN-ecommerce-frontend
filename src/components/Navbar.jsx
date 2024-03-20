@@ -6,6 +6,8 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectCart } from "../features/cart/cartSlice";
 
 const user = {
   name: "Tom Cook",
@@ -28,6 +30,8 @@ function classNames(...classes) {
 }
 
 const Navbar = ({ children }) => {
+  const cart = useSelector(selectCart);
+
   return (
     <div className="min-h-full">
       <Disclosure as="nav" className="bg-gray-800">
@@ -76,9 +80,11 @@ const Navbar = ({ children }) => {
                           aria-hidden="true"
                         />
                       </button>
-                      <span className="relative z-10 inline-flex items-center rounded-md bg-red-50 px-2 py-1 mb-7 -ms-3 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
-                        3
-                      </span>
+                      {cart.length > 0 && (
+                        <span className="relative z-10 inline-flex items-center rounded-md bg-red-50 px-2 py-1 mb-7 -ms-3 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                          {cart.length}
+                        </span>
+                      )}
                     </Link>
 
                     {/* Profile dropdown */}
@@ -187,10 +193,11 @@ const Navbar = ({ children }) => {
                         aria-hidden="true"
                       />
                     </button>
-
-                    <span className="relative z-10 inline-flex items-center rounded-md bg-red-50 px-2 py-1 mb-7 -ms-3 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
-                      4
-                    </span>
+                    {cart.length > 0 && (
+                      <span className="relative z-10 inline-flex items-center rounded-md bg-red-50 px-2 py-1 mb-7 -ms-3 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                        {cart.length}
+                      </span>
+                    )}
                   </Link>
                 </div>
                 <div className="mt-3 space-y-1 px-2">

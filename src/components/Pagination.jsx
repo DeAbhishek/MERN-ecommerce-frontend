@@ -68,6 +68,7 @@ const Pagination = ({ page, setPage, sort }) => {
               length: totalPages,
             }).map((item, index) => (
               <button
+                key={index}
                 onClick={() => setPage(index + 1)}
                 aria-current="page"
                 className={`relative z-10 inline-flex items-center ${

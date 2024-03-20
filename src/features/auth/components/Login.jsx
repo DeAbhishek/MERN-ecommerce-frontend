@@ -13,9 +13,8 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  console.log(resData);
 
-  return resData?.email ? (
+  return resData?.id ? (
     <Navigate to="/" replace={true} />
   ) : (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">

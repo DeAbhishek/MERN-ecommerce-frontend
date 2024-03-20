@@ -19,7 +19,7 @@ export const checkUser = async (logInData) => {
     .then((res) =>
       res.data.length
         ? res.data[0].password === password
-          ? { email: res.data[0].email }
+          ? { id: res.data[0].id }
           : "Invalid Credentials"
         : "User Not Found"
     )
