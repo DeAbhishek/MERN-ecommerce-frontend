@@ -7,10 +7,10 @@ import {
   updateCartAsync,
 } from "../features/cart/cartSlice";
 
-const Cart = ({ headerMargin, btnName, link }) => {
+const Cart = ({ headerMargin, children }) => {
   const dispatch = useDispatch();
   const cart = useSelector(selectCart);
-  const subTotal = cart.reduce(
+  const totalAmount = cart.reduce(
     (amount, item) => amount + item.price * item.quantity,
     0
   );
@@ -120,20 +120,22 @@ const Cart = ({ headerMargin, btnName, link }) => {
       <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
         <div className="flex justify-between text-base font-medium text-gray-900">
           <p>Subtotal</p>
-          <p>${subTotal}</p>
+          <p>${totalAmount}</p>
         </div>
         <p className="mt-0.5 text-sm text-gray-500">Total Items {totalItem}</p>
         <div className="mt-6">
-          <Link
+        {children}
+          {/* <Link
             to={link}
             className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
           >
             {btnName}
-          </Link>
+          </Link> */}
         </div>
         <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
           <p>
             or{" "}
+            
             <Link to={"/"}>
               <button
                 type="button"

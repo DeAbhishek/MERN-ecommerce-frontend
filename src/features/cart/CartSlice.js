@@ -31,7 +31,7 @@ export const deleteItemFromCartAsync = createAsyncThunk(
   (itemId) => deleteItemFromCart(itemId)
 );
 
-export const counterSlice = createSlice({
+export const cartSlice = createSlice({
   name: "cart",
   initialState,
   extraReducers: (builder) => {
@@ -91,4 +91,4 @@ export const counterSlice = createSlice({
 
 export const selectCart = (state) => state.cart.items;
 
-export default counterSlice.reducer;
+export default cartSlice.reducer;

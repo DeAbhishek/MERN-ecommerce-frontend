@@ -19,11 +19,17 @@ export const checkUser = async (logInData) => {
     .then((res) =>
       res.data.length
         ? res.data[0].password === password
-          ? { id: res.data[0].id }
+          ? res.data[0]
           : "Invalid Credentials"
         : "User Not Found"
     )
     .catch((error) => error);
 
   return response;
+};
+
+export const updateUser = async (update) => {
+  const response = await axios.put(`${USER_URL}/${update.id}`, update);
+  console.log(response.data)
+  return response.data;
 };
