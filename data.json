@@ -2353,65 +2353,27 @@
   ],
   "cart": [
     {
-      "id": 2,
-      "title": "iPhone X",
-      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "price": 899,
-      "discountPercentage": 17.94,
-      "rating": 4.44,
-      "stock": 34,
-      "brand": "Apple",
-      "category": "smartphones",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
+      "title": "Infinix INBOOK",
+      "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
+      "price": 1099,
+      "discountPercentage": 11.83,
+      "rating": 4.54,
+      "stock": 96,
+      "brand": "Infinix",
+      "category": "laptops",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg",
       "images": [
-        "https://cdn.dummyjson.com/product-images/2/1.jpg",
-        "https://cdn.dummyjson.com/product-images/2/2.jpg",
-        "https://cdn.dummyjson.com/product-images/2/3.jpg",
-        "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
+        "https://cdn.dummyjson.com/product-images/9/1.jpg",
+        "https://cdn.dummyjson.com/product-images/9/2.png",
+        "https://cdn.dummyjson.com/product-images/9/3.png",
+        "https://cdn.dummyjson.com/product-images/9/4.jpg",
+        "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg"
       ],
-      "quantity": 4,
-      "user": 2
+      "quantity": 1,
+      "user": 1,
+      "id": 1
     },
     {
-      "id": 4,
-      "title": "OPPOF19",
-      "description": "OPPO F19 is officially announced on April 2021.",
-      "price": 280,
-      "discountPercentage": 17.91,
-      "rating": 4.3,
-      "stock": 123,
-      "brand": "OPPO",
-      "category": "smartphones",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/4/1.jpg",
-        "https://cdn.dummyjson.com/product-images/4/2.jpg",
-        "https://cdn.dummyjson.com/product-images/4/3.jpg",
-        "https://cdn.dummyjson.com/product-images/4/4.jpg",
-        "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg"
-      ],
-      "quantity": 5,
-      "user": 2
-    },
-    {
-      "id": 3,
-      "title": "Samsung Universe 9",
-      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-      "price": 1249,
-      "discountPercentage": 15.46,
-      "rating": 4.09,
-      "stock": 36,
-      "brand": "Samsung",
-      "category": "smartphones",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/3/1.jpg"
-      ],
-      "quantity": 3,
-      "user": 1
-    },
-    {
-      "id": 5,
       "title": "Huawei P30",
       "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
       "price": 499,
@@ -2426,8 +2388,30 @@
         "https://cdn.dummyjson.com/product-images/5/2.jpg",
         "https://cdn.dummyjson.com/product-images/5/3.jpg"
       ],
-      "quantity": 3,
-      "user": 2
+      "quantity": 1,
+      "user": 1,
+      "id": 2
+    },
+    {
+      "title": "Infinix INBOOK",
+      "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
+      "price": 1099,
+      "discountPercentage": 11.83,
+      "rating": 4.54,
+      "stock": 96,
+      "brand": "Infinix",
+      "category": "laptops",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/9/1.jpg",
+        "https://cdn.dummyjson.com/product-images/9/2.png",
+        "https://cdn.dummyjson.com/product-images/9/3.png",
+        "https://cdn.dummyjson.com/product-images/9/4.jpg",
+        "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "user": 2,
+      "id": 3
     }
   ]
 }

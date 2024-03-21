@@ -1,4 +1,7 @@
+import { useSelector } from "react-redux";
 import Cart from "../components/Cart";
+import { selectCart } from "../features/cart/cartSlice";
+import { Navigate } from "react-router-dom";
 
 const addresses = [
   {
@@ -58,7 +61,10 @@ const addresses = [
 ];
 
 const Checkout = () => {
-  return (
+  const carrtItems = useSelector(selectCart);
+  return !carrtItems.length ? (
+    <Navigate to={"/"} />
+  ) : (
     <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5 mx-auto py-5 my-5 max-w-7xl px-4 sm:px-6 lg:px-8 bg-white divide-x divide-gray-200">
       <form className="lg:col-span-3">
         <div className="border-b border-gray-900/10 pb-12">

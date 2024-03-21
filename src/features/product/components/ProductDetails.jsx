@@ -45,7 +45,9 @@ const ProductDetails = () => {
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
 
   const handleCart = (item) => {
-    dispatch(addToCartAsync({ ...product, quantity: 1, user: user.id }));
+    const addedProduct = { ...product, quantity: 1, user: user.id };
+    delete addedProduct["id"];
+    dispatch(addToCartAsync(addedProduct));
   };
 
   useEffect(() => {
