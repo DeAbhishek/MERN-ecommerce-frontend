@@ -8,11 +8,15 @@ import {
   updateUserAsync,
 } from "../features/auth/authSlice";
 import { useState } from "react";
-import { createOrderAsync } from "../features/order/orderSlice";
+import {
+  createOrderAsync,
+  selectCurrentOrder,
+} from "../features/order/orderSlice";
 
 const Checkout = () => {
   const carrtItems = useSelector(selectCart);
   const user = useSelector(selectLoggedInUser);
+  const currentOrder = useSelector(selectCurrentOrder);
   const dispatch = useDispatch();
   const {
     register,
@@ -41,6 +45,7 @@ const Checkout = () => {
   );
 
   const handleOrder = () => {
+    if (!selectedAddress) return;
     dispatch(
       createOrderAsync({
         items: carrtItems,
@@ -49,12 +54,15 @@ const Checkout = () => {
         user: { email: user.email },
         selectedAddress,
         paymentMethod,
+        status: "pending",
       })
     );
   };
 
   return !carrtItems.length ? (
-    <Navigate to={"/cart"} />
+    <Navigate to={"/cart"} replace={true} />
+  ) : currentOrder ? (
+    <Navigate to={`/order-success/${currentOrder.id}`} replace={true} />
   ) : (
     <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5 mx-auto py-5 my-5 max-w-7xl px-4 sm:px-6 lg:px-8 bg-white lg:divide-x divide-gray-200">
       <form
@@ -358,13 +366,23 @@ const Checkout = () => {
       </form>
       <div className="lg:col-span-2">
         <Cart headerMargin={"mb-5"}>
-          <button
-            type="button"
-            onClick={handleOrder}
-            className="w-full flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-          >
-            Pay & Order
-          </button>
+          {!selectedAddress ? (
+            <button
+              type="button"
+              onClick={handleOrder}
+              className="w-full flex items-center justify-center rounded-md border border-transparent bg-red-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-red-600/90 cursor-not-allowed"
+            >
+              Please select a address
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={handleOrder}
+              className="w-full flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+            >
+              Pay & Order
+            </button>
+          )}
         </Cart>
       </div>
     </div>
