@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useParams } from "react-router-dom";
-import { fetchItemsByUserIdAsync, resetCartAsync } from "../cart/cartSlice";
+import { resetCartAsync } from "../cart/cartSlice";
 import { selectLoggedInUser } from "../auth/authSlice";
 import { resetCurrentOrder } from "./orderSlice";
 
@@ -12,8 +12,6 @@ const OrderSuccessPage = () => {
   useEffect(() => {
     dispatch(resetCartAsync(user.id));
     dispatch(resetCurrentOrder());
-    if (!user) return;
-    dispatch(fetchItemsByUserIdAsync(user.id));
   }, [dispatch, user]);
 
   return !params.id ? (
@@ -37,22 +35,6 @@ const OrderSuccessPage = () => {
           >
             Go back home
           </Link>
-
-          <a
-            href="mailto:deabhishek06@gmail.com"
-            className="text-sm font-semibold text-blue-600 hover:text-xl hover:underline flex items-center gap-1 group"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="w-4 h-4 group-hover:w-6 group-hover:h-6"
-            >
-              <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
-              <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
-            </svg>
-            deabhishek06@gmail.com
-          </a>
         </div>
       </div>
     </main>

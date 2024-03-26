@@ -20,8 +20,8 @@ const navigation = [
   { name: "Team", href: "#", current: false },
 ];
 const userNavigation = [
-  { name: "Your Profile", link: "/" },
-  { name: "Settings", link: "/" },
+  { name: "Your Profile", link: "/profile" },
+  { name: "My Order", link: "/orders" },
   { name: "Sign out", link: "/login" },
 ];
 
@@ -29,7 +29,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const Navbar = ({ children }) => {
+const Navbar = ({ children, pageName = "" }) => {
   const cart = useSelector(selectCart);
 
   return (
@@ -225,7 +225,7 @@ const Navbar = ({ children }) => {
             to={"/"}
             className="text-3xl font-bold tracking-tight text-gray-900"
           >
-            SHOPPER
+            SHOPPER {pageName ? <span>&gt; {pageName}</span> : ""}
           </Link>
         </div>
       </header>

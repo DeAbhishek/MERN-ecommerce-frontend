@@ -14,7 +14,7 @@ import {
 } from "../features/order/orderSlice";
 
 const Checkout = () => {
-  const carrtItems = useSelector(selectCart);
+  const cartItems = useSelector(selectCart);
   const user = useSelector(selectLoggedInUser);
   const currentOrder = useSelector(selectCurrentOrder);
   const dispatch = useDispatch();
@@ -35,11 +35,11 @@ const Checkout = () => {
     setPaymentMethod(e.target.value);
   };
 
-  const totalAmount = carrtItems.reduce(
+  const totalAmount = cartItems.reduce(
     (amount, item) => amount + item.price * item.quantity,
     0
   );
-  const totalItem = carrtItems.reduce(
+  const totalItem = cartItems.reduce(
     (total, item) => total + item.quantity,
     0
   );
@@ -48,10 +48,10 @@ const Checkout = () => {
     if (!selectedAddress) return;
     dispatch(
       createOrderAsync({
-        items: carrtItems,
+        items: cartItems,
         totalItem,
         totalAmount,
-        user: { email: user.email },
+        user: { id: user.id, email: user.email },
         selectedAddress,
         paymentMethod,
         status: "pending",
@@ -59,7 +59,7 @@ const Checkout = () => {
     );
   };
 
-  return !carrtItems.length ? (
+  return !cartItems.length ? (
     <Navigate to={"/cart"} replace={true} />
   ) : currentOrder ? (
     <Navigate to={`/order-success/${currentOrder.id}`} replace={true} />

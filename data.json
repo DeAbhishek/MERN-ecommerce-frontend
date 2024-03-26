@@ -2421,47 +2421,6 @@
             "https://cdn.dummyjson.com/product-images/2/3.jpg",
             "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
           ],
-          "quantity": 4,
-          "user": 1,
-          "id": 1
-        }
-      ],
-      "totalItem": 4,
-      "totalAmount": 3596,
-      "user": {
-        "email": "aaaa@ga.com"
-      },
-      "selectedAddress": {
-        "name": "Abhi",
-        "email": "abhi@gmail.com",
-        "phone": "1234567890",
-        "street": "we are here",
-        "city": "Kolkata",
-        "state": "WB",
-        "pincode": "1234567890"
-      },
-      "paymentMethod": "cash",
-      "status": "pending",
-      "id": 1
-    },
-    {
-      "items": [
-        {
-          "title": "iPhone X",
-          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-          "price": 899,
-          "discountPercentage": 17.94,
-          "rating": 4.44,
-          "stock": 34,
-          "brand": "Apple",
-          "category": "smartphones",
-          "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
-          "images": [
-            "https://cdn.dummyjson.com/product-images/2/1.jpg",
-            "https://cdn.dummyjson.com/product-images/2/2.jpg",
-            "https://cdn.dummyjson.com/product-images/2/3.jpg",
-            "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
-          ],
           "quantity": 1,
           "user": 1,
           "id": 1
@@ -2470,20 +2429,21 @@
       "totalItem": 1,
       "totalAmount": 899,
       "user": {
+        "id": 1,
         "email": "aaaa@ga.com"
       },
       "selectedAddress": {
-        "name": "PUja",
-        "email": "Puja.das@gmail.com",
+        "name": "Puja Das",
+        "email": "aaaa@ga.com",
         "phone": "7980804436",
         "street": "Garia",
-        "city": "KOLKATA",
-        "state": "WEST BENGAL",
-        "pincode": "700094"
+        "city": "Kolkata",
+        "state": "WB",
+        "pincode": "1234567890"
       },
       "paymentMethod": "cash",
       "status": "pending",
-      "id": 2
+      "id": 1
     },
     {
       "items": [
@@ -2504,71 +2464,30 @@
             "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg"
           ],
           "quantity": 1,
-          "user": 2,
-          "id": 2
-        }
-      ],
-      "totalItem": 1,
-      "totalAmount": 1499,
-      "user": {
-        "email": "metiist.digital@gmail.com"
-      },
-      "selectedAddress": {
-        "name": "Puja Das",
-        "email": "metiist.digital@gmail.com",
-        "phone": "7980804436",
-        "street": "Saltlake",
-        "city": "Kolkata",
-        "state": "WB",
-        "pincode": "1234567890"
-      },
-      "paymentMethod": "cash",
-      "status": "pending",
-      "id": 3
-    },
-    {
-      "items": [
+          "user": 1,
+          "id": 1
+        },
         {
-          "title": "iPhone X",
-          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-          "price": 899,
-          "discountPercentage": 17.94,
-          "rating": 4.44,
-          "stock": 34,
-          "brand": "Apple",
-          "category": "smartphones",
-          "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
+          "title": "Infinix INBOOK",
+          "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
+          "price": 1099,
+          "discountPercentage": 11.83,
+          "rating": 4.54,
+          "stock": 96,
+          "brand": "Infinix",
+          "category": "laptops",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg",
           "images": [
-            "https://cdn.dummyjson.com/product-images/2/1.jpg",
-            "https://cdn.dummyjson.com/product-images/2/2.jpg",
-            "https://cdn.dummyjson.com/product-images/2/3.jpg",
-            "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
+            "https://cdn.dummyjson.com/product-images/9/1.jpg",
+            "https://cdn.dummyjson.com/product-images/9/2.png",
+            "https://cdn.dummyjson.com/product-images/9/3.png",
+            "https://cdn.dummyjson.com/product-images/9/4.jpg",
+            "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg"
           ],
           "quantity": 1,
           "user": 1,
-          "id": 1
-        }
-      ],
-      "totalItem": 1,
-      "totalAmount": 899,
-      "user": {
-        "email": "aaaa@ga.com"
-      },
-      "selectedAddress": {
-        "name": "Abhishek De",
-        "email": "aaaa@ga.com",
-        "phone": "7980804436",
-        "street": "qwetyuinvb ghjkg v b fmnbkj skj  jnbv jnbj ljn",
-        "city": "Kolkata",
-        "state": "WB",
-        "pincode": "1234567890"
-      },
-      "paymentMethod": "cash",
-      "status": "pending",
-      "id": 4
-    },
-    {
-      "items": [
+          "id": 2
+        },
         {
           "title": "MacBook Pro",
           "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
@@ -2587,22 +2506,235 @@
           ],
           "quantity": 1,
           "user": 1,
-          "id": 1
+          "id": 3
         }
       ],
-      "totalItem": 1,
-      "totalAmount": 1749,
+      "totalItem": 3,
+      "totalAmount": 4347,
       "user": {
+        "id": 1,
         "email": "aaaa@ga.com"
       },
       "selectedAddress": {
-        "name": "PUja",
-        "email": "Puja.das@gmail.com",
+        "name": "Puja Das",
+        "email": "aaaa@ga.com",
         "phone": "7980804436",
         "street": "Garia",
-        "city": "KOLKATA",
-        "state": "WEST BENGAL",
-        "pincode": "700094"
+        "city": "Kolkata",
+        "state": "WB",
+        "pincode": "1234567890"
+      },
+      "paymentMethod": "cash",
+      "status": "pending",
+      "id": 2
+    },
+    {
+      "items": [
+        {
+          "title": "3 DOOR PORTABLE",
+          "description": "Material: Stainless Steel and Fabric  Item Size: 110 cm x 45 cm x 175 cm Package Contents: 1 Storage Wardrobe",
+          "price": 41,
+          "discountPercentage": 7.98,
+          "rating": 4.06,
+          "stock": 68,
+          "brand": "AmnaMart",
+          "category": "furniture",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/35/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/35/1.jpg",
+            "https://cdn.dummyjson.com/product-images/35/2.jpg",
+            "https://cdn.dummyjson.com/product-images/35/3.jpg",
+            "https://cdn.dummyjson.com/product-images/35/4.jpg",
+            "https://cdn.dummyjson.com/product-images/35/thumbnail.jpg"
+          ],
+          "quantity": 2,
+          "user": 1,
+          "id": 1
+        },
+        {
+          "title": "Malai Maxi Dress",
+          "description": "Ready to wear, Unique design according to modern standard fashion, Best fitting ,Imported stuff",
+          "price": 50,
+          "discountPercentage": 5.07,
+          "rating": 4.67,
+          "stock": 96,
+          "brand": "IELGY",
+          "category": "womens-dresses",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/45/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/45/1.jpg",
+            "https://cdn.dummyjson.com/product-images/45/2.webp",
+            "https://cdn.dummyjson.com/product-images/45/3.jpg",
+            "https://cdn.dummyjson.com/product-images/45/4.jpg",
+            "https://cdn.dummyjson.com/product-images/45/thumbnail.jpg"
+          ],
+          "quantity": 4,
+          "user": 1,
+          "id": 2
+        },
+        {
+          "title": "FREE FIRE T Shirt",
+          "description": "quality and professional print - It doesn't just look high quality, it is high quality.",
+          "price": 10,
+          "discountPercentage": 14.72,
+          "rating": 4.52,
+          "stock": 128,
+          "brand": "FREE FIRE",
+          "category": "mens-shirts",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/52/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/52/1.png",
+            "https://cdn.dummyjson.com/product-images/52/2.png",
+            "https://cdn.dummyjson.com/product-images/52/3.jpg",
+            "https://cdn.dummyjson.com/product-images/52/4.jpg",
+            "https://cdn.dummyjson.com/product-images/52/thumbnail.jpg"
+          ],
+          "quantity": 3,
+          "user": 1,
+          "id": 3
+        }
+      ],
+      "totalItem": 9,
+      "totalAmount": 312,
+      "user": {
+        "id": 1,
+        "email": "aaaa@ga.com"
+      },
+      "selectedAddress": {
+        "name": "Abhishek De",
+        "email": "aaaa@ga.com",
+        "phone": "7980804436",
+        "street": "qwetyuinvb ghjkg v b fmnbkj skj  jnbv jnbj ljn",
+        "city": "Kolkata",
+        "state": "WB",
+        "pincode": "1234567890"
+      },
+      "paymentMethod": "cash",
+      "status": "pending",
+      "id": 3
+    },
+    {
+      "items": [
+        {
+          "title": "FREE FIRE T Shirt",
+          "description": "quality and professional print - It doesn't just look high quality, it is high quality.",
+          "price": 10,
+          "discountPercentage": 14.72,
+          "rating": 4.52,
+          "stock": 128,
+          "brand": "FREE FIRE",
+          "category": "mens-shirts",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/52/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/52/1.png",
+            "https://cdn.dummyjson.com/product-images/52/2.png",
+            "https://cdn.dummyjson.com/product-images/52/3.jpg",
+            "https://cdn.dummyjson.com/product-images/52/4.jpg",
+            "https://cdn.dummyjson.com/product-images/52/thumbnail.jpg"
+          ],
+          "quantity": 3,
+          "user": 1,
+          "id": 3
+        }
+      ],
+      "totalItem": 3,
+      "totalAmount": 30,
+      "user": {
+        "id": 1,
+        "email": "aaaa@ga.com"
+      },
+      "selectedAddress": {
+        "name": "Abhi",
+        "email": "abhi@gmail.com",
+        "phone": "1234567890",
+        "street": "we are here",
+        "city": "Kolkata",
+        "state": "WB",
+        "pincode": "1234567890"
+      },
+      "paymentMethod": "cash",
+      "status": "pending",
+      "id": 4
+    },
+    {
+      "items": [
+        {
+          "title": "Cycle Bike Glow",
+          "description": "Universal fitment and easy to install no special wires, can be easily installed and removed. Fits most standard tyre air stem valves of road, mountain bicycles, motocycles and cars.Bright led will turn on w",
+          "price": 35,
+          "discountPercentage": 11.08,
+          "rating": 4.1,
+          "stock": 63,
+          "brand": "Neon LED Light",
+          "category": "automotive",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/90/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/90/1.jpg",
+            "https://cdn.dummyjson.com/product-images/90/2.jpg",
+            "https://cdn.dummyjson.com/product-images/90/3.jpg",
+            "https://cdn.dummyjson.com/product-images/90/4.jpg",
+            "https://cdn.dummyjson.com/product-images/90/thumbnail.jpg"
+          ],
+          "quantity": 2,
+          "user": 1,
+          "id": 1
+        },
+        {
+          "title": "Ladies Multicolored Dress",
+          "description": "This classy shirt for women gives you a gorgeous look on everyday wear and specially for semi-casual wears.",
+          "price": 79,
+          "discountPercentage": 16.88,
+          "rating": 4.03,
+          "stock": 2,
+          "brand": "Ghazi Fabric",
+          "category": "womens-dresses",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/44/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/44/1.jpg",
+            "https://cdn.dummyjson.com/product-images/44/2.jpg",
+            "https://cdn.dummyjson.com/product-images/44/3.jpg",
+            "https://cdn.dummyjson.com/product-images/44/4.jpg",
+            "https://cdn.dummyjson.com/product-images/44/thumbnail.jpg"
+          ],
+          "quantity": 5,
+          "user": 1,
+          "id": 2
+        },
+        {
+          "title": "Crystal chandelier maria theresa for 12 light",
+          "description": "Crystal chandelier maria theresa for 12 light",
+          "price": 47,
+          "discountPercentage": 16,
+          "rating": 4.74,
+          "stock": 133,
+          "brand": "YIOSI",
+          "category": "lighting",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/100/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/100/1.jpg",
+            "https://cdn.dummyjson.com/product-images/100/2.jpg",
+            "https://cdn.dummyjson.com/product-images/100/3.jpg",
+            "https://cdn.dummyjson.com/product-images/100/thumbnail.jpg"
+          ],
+          "quantity": 2,
+          "user": 1,
+          "id": 3
+        }
+      ],
+      "totalItem": 9,
+      "totalAmount": 559,
+      "user": {
+        "id": 1,
+        "email": "aaaa@ga.com"
+      },
+      "selectedAddress": {
+        "name": "Puja Das",
+        "email": "aaaa@ga.com",
+        "phone": "7980804436",
+        "street": "Garia",
+        "city": "Kolkata",
+        "state": "WB",
+        "pincode": "1234567890"
       },
       "paymentMethod": "cash",
       "status": "pending",
