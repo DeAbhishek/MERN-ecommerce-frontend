@@ -8,7 +8,8 @@ import {
   selectedProductDetails,
 } from "../productSlice";
 import { addToCartAsync } from "../../cart/cartSlice";
-import { selectLoggedInUser } from "../../auth/authSlice";
+import { selectUserInfo } from "../../user/userSlice";
+
 
 const colors = [
   { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
@@ -38,7 +39,7 @@ function classNames(...classes) {
 
 const ProductDetails = () => {
   const product = useSelector(selectedProductDetails);
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectUserInfo);
   const dispatch = useDispatch();
   const params = useParams();
   const [selectedColor, setSelectedColor] = useState(colors[0]);

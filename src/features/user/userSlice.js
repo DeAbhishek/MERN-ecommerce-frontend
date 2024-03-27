@@ -1,15 +1,29 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { fetchLoggedInUserOrder } from "./userAPI";
+import {
+  fetchLoggedInUser,
+  fetchLoggedInUserOrder,
+  updateUser,
+} from "./userAPI";
 
 const initialState = {
   status: "Idle",
   error: null,
   userOrder: [],
+  userInfo: null,
 };
 
 export const fetchLoggedInUserOrderAsync = createAsyncThunk(
   "user/fetchLoggedInUserOrder",
   (userID) => fetchLoggedInUserOrder(userID)
+);
+
+export const updateUserAsync = createAsyncThunk("user/updateUser", (updatedUserData) =>
+  updateUser(updatedUserData)
+);
+
+export const fetchLoggedInUserAsync = createAsyncThunk(
+  "user/fetchLoggedInUser",
+  (userID) => fetchLoggedInUser(userID)
 );
 
 export const userSlice = createSlice({
@@ -27,10 +41,33 @@ export const userSlice = createSlice({
       .addCase(fetchLoggedInUserOrderAsync.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
+      })
+      .addCase(updateUserAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(updateUserAsync.fulfilled, (state, action) => {
+        state.status = "success";
+        state.userInfo = action.payload;
+      })
+      .addCase(updateUserAsync.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+      .addCase(fetchLoggedInUserAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchLoggedInUserAsync.fulfilled, (state, action) => {
+        state.status = "success";
+        state.userInfo = action.payload;
+      })
+      .addCase(fetchLoggedInUserAsync.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
       });
   },
 });
 
 export const loggedInUserOrders = (state) => state.user.userOrder;
+export const selectUserInfo = (state) => state.user.userInfo;
 
 export default userSlice.reducer;

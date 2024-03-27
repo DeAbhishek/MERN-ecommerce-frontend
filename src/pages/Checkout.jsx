@@ -3,10 +3,7 @@ import Cart from "../components/Cart";
 import { selectCart } from "../features/cart/cartSlice";
 import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import {
-  selectLoggedInUser,
-  updateUserAsync,
-} from "../features/auth/authSlice";
+import { selectUserInfo, updateUserAsync } from "../features/user/userSlice";
 import { useState } from "react";
 import {
   createOrderAsync,
@@ -15,7 +12,7 @@ import {
 
 const Checkout = () => {
   const cartItems = useSelector(selectCart);
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectUserInfo);
   const currentOrder = useSelector(selectCurrentOrder);
   const dispatch = useDispatch();
   const {
@@ -39,10 +36,7 @@ const Checkout = () => {
     (amount, item) => amount + item.price * item.quantity,
     0
   );
-  const totalItem = cartItems.reduce(
-    (total, item) => total + item.quantity,
-    0
-  );
+  const totalItem = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   const handleOrder = () => {
     if (!selectedAddress) return;
@@ -70,7 +64,7 @@ const Checkout = () => {
         noValidate
         onSubmit={handleSubmit((data) => {
           dispatch(
-            updateUserAsync({ ...user, addresses: [...user.addresses, data] })
+            updateUserAsync({ ...user, addresses: [data, ...user.addresses] })
           );
           reset();
         })}
@@ -262,6 +256,9 @@ const Checkout = () => {
           <button
             type="button"
             className="text-sm font-semibold leading-6 text-gray-900"
+            onClick={() => {
+              reset();
+            }}
           >
             Reset
           </button>

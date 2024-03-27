@@ -36,7 +36,6 @@ export const resetCartAsync = createAsyncThunk(
   "cart/resetCart",
   async (userId) => {
     const response = await resetCart(userId);
-    console.log(response);
     return response;
   }
 );
@@ -101,6 +100,7 @@ export const cartSlice = createSlice({
       })
       .addCase(resetCartAsync.fulfilled, (state, action) => {
         state.status = action.payload;
+        state.items = [];
       })
       .addCase(resetCartAsync.rejected, (state, action) => {
         state.status = "rejected";

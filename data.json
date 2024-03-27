@@ -2341,25 +2341,16 @@
       "password": "Mitali123@",
       "addresses": [
         {
-          "name": "Abhishek De",
-          "email": "aaaa@ga.com",
+          "name": "Rai",
+          "email": "rai@gmail.com",
           "phone": "7980804436",
-          "street": "qwetyuinvb ghjkg v b fmnbkj skj  jnbv jnbj ljn",
-          "city": "Kolkata",
-          "state": "WB",
-          "pincode": "1234567890"
+          "street": "New town",
+          "city": "KOLKATA",
+          "state": "WEST BENGAL",
+          "pincode": "700094"
         },
         {
-          "name": "Puja Das",
-          "email": "aaaa@ga.com",
-          "phone": "7980804436",
-          "street": "Garia",
-          "city": "Kolkata",
-          "state": "WB",
-          "pincode": "1234567890"
-        },
-        {
-          "name": "PUja",
+          "name": "Puja De",
           "email": "Puja.das@gmail.com",
           "phone": "7980804436",
           "street": "Garia",
@@ -2368,13 +2359,49 @@
           "pincode": "700094"
         },
         {
-          "name": "Abhi",
-          "email": "abhi@gmail.com",
-          "phone": "1234567890",
-          "street": "we are here",
+          "name": "A De",
+          "email": "ade@gmail.com",
+          "phone": "7980804436",
+          "street": "Saltlake",
+          "city": "KOLKATA",
+          "state": "WEST BENGAL",
+          "pincode": "700094"
+        },
+        {
+          "name": "Puja Das",
+          "email": "puja@ga.com",
+          "phone": "7980804436",
+          "street": "Garia",
           "city": "Kolkata",
           "state": "WB",
-          "pincode": "1234567890"
+          "pincode": "700000"
+        },
+        {
+          "name": "Puja",
+          "email": "Puja.das@gmail.com",
+          "phone": "7980804436",
+          "street": "Garia",
+          "city": "KOLKATA",
+          "state": "WEST BENGAL",
+          "pincode": "700094"
+        },
+        {
+          "name": "Bristi Das",
+          "email": "bristi@gmail.com",
+          "phone": "7980804436",
+          "street": "New Alipore",
+          "city": "Kolkata",
+          "state": "West Bengal",
+          "pincode": "7000000"
+        },
+        {
+          "name": "Mum",
+          "email": "mum@gmail.com",
+          "phone": "7980804436",
+          "street": "New Garia",
+          "city": "KOLKATA",
+          "state": "WEST BENGAL",
+          "pincode": "700094"
         }
       ]
     },
@@ -2390,6 +2417,24 @@
           "city": "Kolkata",
           "state": "WB",
           "pincode": "1234567890"
+        },
+        {
+          "name": "Mum",
+          "email": "mum@gmail.com",
+          "phone": "7980804436",
+          "street": "New town",
+          "city": "Kolkata",
+          "state": "West Bengal",
+          "pincode": "700101"
+        },
+        {
+          "name": "Arpita De",
+          "email": "arpita@gmail.com",
+          "phone": "7980804436",
+          "street": "New Garia",
+          "city": "Kolkata",
+          "state": "West Bengal",
+          "pincode": "700000"
         }
       ],
       "id": 2
@@ -2401,7 +2446,28 @@
       "id": 3
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "title": "iPhone X",
+      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      "price": 899,
+      "discountPercentage": 17.94,
+      "rating": 4.44,
+      "stock": 34,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/2/1.jpg",
+        "https://cdn.dummyjson.com/product-images/2/2.jpg",
+        "https://cdn.dummyjson.com/product-images/2/3.jpg",
+        "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "user": 1,
+      "id": 1
+    }
+  ],
   "orders": [
     {
       "items": [
@@ -2739,6 +2805,192 @@
       "paymentMethod": "cash",
       "status": "pending",
       "id": 5
+    },
+    {
+      "items": [
+        {
+          "title": "Microsoft Surface Laptop 4",
+          "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+          "price": 1499,
+          "discountPercentage": 10.23,
+          "rating": 4.43,
+          "stock": 68,
+          "brand": "Microsoft Surface",
+          "category": "laptops",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/8/1.jpg",
+            "https://cdn.dummyjson.com/product-images/8/2.jpg",
+            "https://cdn.dummyjson.com/product-images/8/3.jpg",
+            "https://cdn.dummyjson.com/product-images/8/4.jpg",
+            "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalItem": 1,
+      "totalAmount": 1499,
+      "user": {
+        "id": 1,
+        "email": "aaaa@ga.com"
+      },
+      "selectedAddress": {
+        "name": "Puja Das",
+        "email": "aaaa@ga.com",
+        "phone": "7980804436",
+        "street": "Garia",
+        "city": "Kolkata",
+        "state": "WB",
+        "pincode": "1234567890"
+      },
+      "paymentMethod": "card",
+      "status": "pending",
+      "id": 6
+    },
+    {
+      "items": [
+        {
+          "title": "MacBook Pro",
+          "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
+          "price": 1749,
+          "discountPercentage": 11.02,
+          "rating": 4.57,
+          "stock": 83,
+          "brand": "Apple",
+          "category": "laptops",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/6/thumbnail.png",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/6/1.png",
+            "https://cdn.dummyjson.com/product-images/6/2.jpg",
+            "https://cdn.dummyjson.com/product-images/6/3.png",
+            "https://cdn.dummyjson.com/product-images/6/4.jpg"
+          ],
+          "quantity": 4,
+          "user": 2,
+          "id": 1
+        },
+        {
+          "title": "iPhone 9",
+          "description": "An apple mobile which is nothing like apple",
+          "price": 549,
+          "discountPercentage": 12.96,
+          "rating": 4.69,
+          "stock": 94,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/1/1.jpg",
+            "https://cdn.dummyjson.com/product-images/1/2.jpg",
+            "https://cdn.dummyjson.com/product-images/1/3.jpg",
+            "https://cdn.dummyjson.com/product-images/1/4.jpg",
+            "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
+          ],
+          "quantity": 2,
+          "user": 2,
+          "id": 2
+        },
+        {
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 899,
+          "discountPercentage": 17.94,
+          "rating": 4.44,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/2/1.jpg",
+            "https://cdn.dummyjson.com/product-images/2/2.jpg",
+            "https://cdn.dummyjson.com/product-images/2/3.jpg",
+            "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
+          ],
+          "quantity": 4,
+          "user": 2,
+          "id": 3
+        },
+        {
+          "title": "OPPOF19",
+          "description": "OPPO F19 is officially announced on April 2021.",
+          "price": 280,
+          "discountPercentage": 17.91,
+          "rating": 4.3,
+          "stock": 123,
+          "brand": "OPPO",
+          "category": "smartphones",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/4/1.jpg",
+            "https://cdn.dummyjson.com/product-images/4/2.jpg",
+            "https://cdn.dummyjson.com/product-images/4/3.jpg",
+            "https://cdn.dummyjson.com/product-images/4/4.jpg",
+            "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg"
+          ],
+          "quantity": 2,
+          "user": 2,
+          "id": 4
+        }
+      ],
+      "totalItem": 12,
+      "totalAmount": 12250,
+      "user": {
+        "id": 2,
+        "email": "metiist.digital@gmail.com"
+      },
+      "selectedAddress": {
+        "name": "Arpita De",
+        "email": "arpita@gmail.com",
+        "phone": "7980804436",
+        "street": "New Garia",
+        "city": "Kolkata",
+        "state": "West Bengal",
+        "pincode": "700000"
+      },
+      "paymentMethod": "card",
+      "status": "pending",
+      "id": 7
+    },
+    {
+      "items": [
+        {
+          "title": "Samsung Universe 9",
+          "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+          "price": 1249,
+          "discountPercentage": 15.46,
+          "rating": 4.09,
+          "stock": 36,
+          "brand": "Samsung",
+          "category": "smartphones",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/3/1.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalItem": 1,
+      "totalAmount": 1249,
+      "user": {
+        "id": 1,
+        "email": "aaaa@ga.com"
+      },
+      "selectedAddress": {
+        "name": "Bristi Das",
+        "email": "bristi@gmail.com",
+        "phone": "7980804436",
+        "street": "New Alipore",
+        "city": "Kolkata",
+        "state": "West Bengal",
+        "pincode": "7000000"
+      },
+      "paymentMethod": "card",
+      "status": "pending",
+      "id": 8
     }
   ]
 }

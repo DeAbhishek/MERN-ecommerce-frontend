@@ -28,8 +28,3 @@ export const checkUser = async (logInData) => {
   return response;
 };
 
-export const updateUser = async (update) => {
-  const response = await axios.put(`${USER_URL}/${update.id}`, update);
-  console.log(response.data)
-  return response.data;
-};

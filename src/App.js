@@ -1,4 +1,9 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { selectLoggedInUser } from "./features/auth/authSlice";
+import { fetchItemsByUserIdAsync } from "./features/cart/cartSlice";
+import { fetchLoggedInUserAsync } from "./features/user/userSlice";
 import "./App.css";
 import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage";
@@ -7,13 +12,10 @@ import CartPage from "./pages/CartPage";
 import Checkout from "./pages/Checkout";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import Protected from "./features/auth/components/Protected";
-import { useDispatch, useSelector } from "react-redux";
-import { selectLoggedInUser } from "./features/auth/authSlice";
-import { useEffect } from "react";
-import { fetchItemsByUserIdAsync } from "./features/cart/cartSlice";
 import PageNotFound from "./pages/404";
 import OrderSuccessPage from "./features/order/OrderSuccessPage";
 import UserOrdersPage from "./pages/UserOrdersPage";
+import UserProfilePage from "./pages/UserProfilePage";
 
 const router = createBrowserRouter([
   {
@@ -64,7 +66,15 @@ const router = createBrowserRouter([
     path: "/orders",
     element: (
       <Protected>
-        <UserOrdersPage/>
+        <UserOrdersPage />
+      </Protected>
+    ),
+  },
+  {
+    path: "/profile",
+    element: (
+      <Protected>
+        <UserProfilePage />
       </Protected>
     ),
   },
@@ -80,6 +90,7 @@ function App() {
   useEffect(() => {
     if (!user) return;
     dispatch(fetchItemsByUserIdAsync(user.id));
+    dispatch(fetchLoggedInUserAsync(user.id));
   }, [dispatch, user]);
 
   return (
