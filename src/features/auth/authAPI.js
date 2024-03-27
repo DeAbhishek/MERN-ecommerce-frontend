@@ -28,3 +28,7 @@ export const checkUser = async (logInData) => {
   return response;
 };
 
+export const signOut = (userId) =>
+  new Promise((resolve, reject) => {
+    resolve("success");
+  });

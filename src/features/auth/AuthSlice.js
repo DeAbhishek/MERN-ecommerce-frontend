@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { checkUser, createUser } from "./authAPI";
+import { checkUser, createUser, signOut } from "./authAPI";
 // import { updateUser } from "../user/userAPI";
 
 const initialState = {
@@ -16,9 +16,7 @@ export const checkUserAsync = createAsyncThunk("user/checkUser", (logInData) =>
   checkUser(logInData)
 );
 
-// export const updateUserAsync = createAsyncThunk("user/updateUser", (userData) =>
-//   updateUser(userData)
-// );
+export const signOutAsync = createAsyncThunk("user/signOut", () => signOut());
 
 export const authSlice = createSlice({
   name: "user",
@@ -42,18 +40,14 @@ export const authSlice = createSlice({
       .addCase(checkUserAsync.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
+      })
+      .addCase(signOutAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(signOutAsync.fulfilled, (state, action) => {
+        state.status = action.payload;
+        state.loggedInUser = null;
       });
-    // .addCase(updateUserAsync.pending, (state) => {
-    //   state.status = "loading";
-    // })
-    // .addCase(updateUserAsync.fulfilled, (state, action) => {
-    //   state.status = "success";
-    //   state.loggedInUser = action.payload;
-    // })
-    // .addCase(updateUserAsync.rejected, (state, action) => {
-    //   state.status = "failed";
-    //   state.error = action.error.message;
-    // });
   },
 });
 
