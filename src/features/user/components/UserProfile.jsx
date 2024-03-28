@@ -7,7 +7,7 @@ const UserProfile = () => {
   const user = useSelector(selectUserInfo);
   const dispatch = useDispatch();
   const [selectedAddressIndex, setSelectedAddressIndex] = useState(-1);
-  const [showAddAddressForm, setShowAddAddressForm] = useState(true);
+  const [showAddAddressForm, setShowAddAddressForm] = useState(false);
 
   const {
     register,

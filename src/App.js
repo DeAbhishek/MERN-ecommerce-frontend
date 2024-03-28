@@ -17,6 +17,7 @@ import OrderSuccessPage from "./features/order/OrderSuccessPage";
 import UserOrdersPage from "./pages/UserOrdersPage";
 import UserProfilePage from "./pages/UserProfilePage";
 import Logout from "./features/auth/components/Logout";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 
 const router = createBrowserRouter([
   {
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
         <Logout />
       </Protected>
     ),
+  },
+  {
+    path:"/forgot-password",
+    element: <ForgotPasswordPage />,
   },
   {
     path: "*",
