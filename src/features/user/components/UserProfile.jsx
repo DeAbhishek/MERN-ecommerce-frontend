@@ -47,12 +47,15 @@ const UserProfile = () => {
           <h1
             className={`text-4xl font-bold tracking-tight text-gray-900 mb-4`}
           >
-            Name: {user.name ? user.name : "New User"}
+            {user.name ? user.name : "New User"}
           </h1>
-          <h3 className="inline-flex items-center rounded-md bg-indigo-50 px-2 py-1 text-xl font-medium text-indigo-700 ring-1 ring-inset ring-indigo-700/10">
-            {user.email}
+          <h3 className="uppercase tracking-widest inline-flex items-center rounded-md bg-indigo-50 px-2 py-1 text-xl font-medium text-indigo-700 ring-1 ring-inset ring-indigo-700/10">
+            {user.role}
           </h3>
         </div>
+        <h3 className={`text-xl tracking-tight text-gray-900 mb-4`}>
+          email address: <span className="font-bold">{user.email}</span>
+        </h3>
       </div>
 
       <div className="border-t border-gray-200 px-4 py-6 sm:px-6">

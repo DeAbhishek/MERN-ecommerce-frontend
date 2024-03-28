@@ -8,6 +8,7 @@ import {
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCart } from "../features/cart/cartSlice";
+import { selectLoggedInUser } from "../features/auth/authSlice";
 
 const user = {
   name: "Tom Cook",
@@ -16,13 +17,13 @@ const user = {
     "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
 };
 const navigation = [
-  { name: "Home", link: "/", current: true },
-  { name: "Team", href: "#", current: false },
+  { name: "Home", link: "/", current: true, user: true, admin: true },
+  { name: "Contect Us", link: "/", current: false, user: true, admin: true },
+  { name: "Admin", link: "/admin", current: false, admin: true },
 ];
 const userNavigation = [
   { name: "My Profile", link: "/profile" },
   { name: "My Order", link: "/orders" },
-  { name: "Sign out", link: "/logout" },
 ];
 
 function classNames(...classes) {
@@ -31,6 +32,7 @@ function classNames(...classes) {
 
 const Navbar = ({ children, pageName = "" }) => {
   const cart = useSelector(selectCart);
+  const loginRes = useSelector(selectLoggedInUser);
 
   return (
     <div className="min-h-full">
@@ -49,21 +51,24 @@ const Navbar = ({ children, pageName = "" }) => {
                   </div>
                   <div className="hidden md:block">
                     <div className="ml-10 flex items-baseline space-x-4">
-                      {navigation.map((item) => (
-                        <Link
-                          key={item.name}
-                          to={item.link}
-                          className={classNames(
-                            item.current
-                              ? "bg-gray-900 text-white"
-                              : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                            "rounded-md px-3 py-2 text-sm font-medium"
-                          )}
-                          aria-current={item.current ? "page" : undefined}
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
+                      {navigation.map(
+                        (item) =>
+                          item[loginRes?.role] && (
+                            <Link
+                              key={item.name}
+                              to={item.link}
+                              className={classNames(
+                                item.current
+                                  ? "bg-gray-900 text-white"
+                                  : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                                "rounded-md px-3 py-2 text-sm font-medium"
+                              )}
+                              aria-current={item.current ? "page" : undefined}
+                            >
+                              {item.name}
+                            </Link>
+                          )
+                      )}
                     </div>
                   </div>
                 </div>
@@ -80,7 +85,7 @@ const Navbar = ({ children, pageName = "" }) => {
                           aria-hidden="true"
                         />
                       </button>
-                      {cart.length > 0 && (
+                      {loginRes && cart.length > 0 && (
                         <span className="relative z-10 inline-flex items-center rounded-md bg-red-50 px-2 py-1 mb-7 -ms-3 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
                           {cart.length}
                         </span>
@@ -125,6 +130,35 @@ const Navbar = ({ children, pageName = "" }) => {
                               )}
                             </Menu.Item>
                           ))}
+                          {loginRes ? (
+                            <Menu.Item>
+                              {({ active }) => (
+                                <Link
+                                  to="/logout"
+                                  className={classNames(
+                                    active ? "bg-gray-100" : "",
+                                    "block px-4 py-2 text-sm text-gray-700"
+                                  )}
+                                >
+                                  Log out
+                                </Link>
+                              )}
+                            </Menu.Item>
+                          ) : (
+                            <Menu.Item>
+                              {({ active }) => (
+                                <Link
+                                  to="/login"
+                                  className={classNames(
+                                    active ? "bg-gray-100" : "",
+                                    "block px-4 py-2 text-sm text-gray-700"
+                                  )}
+                                >
+                                  Log in
+                                </Link>
+                              )}
+                            </Menu.Item>
+                          )}
                         </Menu.Items>
                       </Transition>
                     </Menu>
@@ -203,15 +237,24 @@ const Navbar = ({ children, pageName = "" }) => {
                 <div className="mt-3 space-y-1 px-2">
                   {userNavigation.map((item) => (
                     <Link to={item.link} key={item.name}>
-                      <Disclosure.Button
-                        as="a"
-                        href={item.href}
-                        className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
-                      >
+                      <Disclosure.Button className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">
                         {item.name}
                       </Disclosure.Button>
                     </Link>
                   ))}
+                  {loginRes ? (
+                    <Link to="/logout">
+                      <Disclosure.Button className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">
+                        Log out
+                      </Disclosure.Button>
+                    </Link>
+                  ) : (
+                    <Link to="/login">
+                      <Disclosure.Button className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">
+                        Log in
+                      </Disclosure.Button>
+                    </Link>
+                  )}
                 </div>
               </div>
             </Disclosure.Panel>

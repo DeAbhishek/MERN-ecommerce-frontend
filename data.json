@@ -2339,6 +2339,7 @@
       "id": 1,
       "email": "aaaa@ga.com",
       "password": "Mitali123@",
+      "role": "admin",
       "addresses": [
         {
           "name": "Rai",
@@ -2359,7 +2360,7 @@
           "pincode": "700094"
         },
         {
-          "name": "A De",
+          "name": "Arpan Das",
           "email": "ade@gmail.com",
           "phone": "7980804436",
           "street": "Saltlake",
@@ -2408,6 +2409,7 @@
     {
       "email": "metiist.digital@gmail.com",
       "password": "Mitali123@",
+      "role": "user",
       "addresses": [
         {
           "name": "Puja Das",
@@ -2438,12 +2440,6 @@
         }
       ],
       "id": 2
-    },
-    {
-      "email": "ggg@gmail.com",
-      "password": "Qwertyuiop1234567890@",
-      "addresses": [],
-      "id": 3
     }
   ],
   "cart": [
