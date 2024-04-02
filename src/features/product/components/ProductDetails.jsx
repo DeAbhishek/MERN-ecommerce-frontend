@@ -67,7 +67,7 @@ const ProductDetails = () => {
                       href={breadcrumb.href}
                       className="mr-2 text-sm font-medium text-gray-900"
                     >
-                      {breadcrumb.name}
+                      {breadcrumb.name}lorem ipsum dolor sit amet, con
                     </a>
                     <svg
                       width={16}

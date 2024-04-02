@@ -1,9 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import {
+  createProduct,
   fetchBrands,
   fetchCategories,
   fetchProductDetailsById,
   fetchProductsByFilter,
+  updateProduct,
 } from "./productAPI";
 
 const initialState = {
@@ -34,9 +36,24 @@ export const fetchProductDetailsByIdAsync = createAsyncThunk(
   (id) => fetchProductDetailsById(id)
 );
 
+export const createProductAsync = createAsyncThunk(
+  "product/createProduct",
+  (product) => createProduct(product)
+);
+
+export const updateProductAsync = createAsyncThunk(
+  "product/updateProduct",
+  (updatedProduct) => updateProduct(updatedProduct)
+);
+
 export const productSlice = createSlice({
   name: "product",
   initialState,
+  reducers: {
+    clearSelectedProduct: (state) => {
+      state.details = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProductsByFilterAsync.pending, (state) => {
@@ -67,9 +84,36 @@ export const productSlice = createSlice({
       .addCase(fetchProductDetailsByIdAsync.fulfilled, (state, action) => {
         state.details = action.payload;
         state.status = "idle";
+      })
+      .addCase(createProductAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(createProductAsync.fulfilled, (state, action) => {
+        state.status = "success";
+        state.products.push(action.payload);
+      })
+      .addCase(createProductAsync.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+      .addCase(updateProductAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(updateProductAsync.fulfilled, (state, action) => {
+        state.status = "success";
+        const index = state.products.findIndex(
+          (product) => product.id === action.payload.id
+        );
+        state.products[index] = action.payload;
+      })
+      .addCase(updateProductAsync.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
       });
   },
 });
+
+export const { clearSelectedProduct } = productSlice.actions;
 
 export const allProducts = (state) => state.product.products;
 export const totalItems = (state) => state.product.totalItems;

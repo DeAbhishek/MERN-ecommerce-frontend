@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const PRODUCTS_URL = "http://localhost:8080/products";
+const PRODUCT_URL = "http://localhost:8080/products";
 const CATEGORIES_URL = "http://localhost:8080/categories";
 const BRANDS_URL = "http://localhost:8080/brands";
 
@@ -12,9 +12,9 @@ export const fetchProductsByFilter = async (nwArr) => {
   let sortString = nwArr[1];
   let pageString = nwArr[2];
   const response1 = await axios.get(
-    `${PRODUCTS_URL}?${pageString}&${sortString}&${filterString}`
+    `${PRODUCT_URL}?${pageString}&${sortString}&${filterString}`
   );
-  const response2 = await axios.get(`${PRODUCTS_URL}?${filterString}`);
+  const response2 = await axios.get(`${PRODUCT_URL}?${filterString}`);
   return {
     products: response1.data,
     totalItems: response2.data.length,
@@ -32,6 +32,19 @@ export const fetchBrands = async () => {
 };
 
 export const fetchProductDetailsById = async (id) => {
-  const response = await axios.get(`${PRODUCTS_URL}/${id}`);
+  const response = await axios.get(`${PRODUCT_URL}/${id}`);
   return response.data;
+};
+
+export const createProduct = async (product) => {
+  const { data } = await axios.post(PRODUCT_URL, product);
+  return data;
+};
+
+export const updateProduct = async (updatedProduct) => {
+  const { data } = await axios.put(
+    `${PRODUCT_URL}/${updatedProduct.id}`,
+    updatedProduct
+  );
+  return data;
 };
