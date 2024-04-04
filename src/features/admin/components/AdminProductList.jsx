@@ -33,7 +33,10 @@ const AdminProductList = () => {
           </Link>
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
             {products.map((product) => (
-              <Link to={`/amdin/product-details/${product.id}`} key={product.id}>
+              <Link
+                to={`/amdin/product-details/${product.id}`}
+                key={product.id}
+              >
                 <div className="group relative border border-gray-200 p-2">
                   <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
                     <img
@@ -56,10 +59,6 @@ const AdminProductList = () => {
                       <p className="mt-1 text-sm text-gray-500 flex items-center gap-x-1">
                         <StarIcon className="h-6 w-6 inline-block text-yellow-500" />{" "}
                         <span>{product.rating}</span>
-                        {product.deleted &&
-                        <span className="uppercase tracking-widest inline-flex items-center rounded-md bg-red-600 px-2 py-1 text-sm font-medium text-white ring-1 ring-inset ring-red-700/10">
-                          DELETED
-                        </span>}
                       </p>
                     </div>
                     <div>
@@ -67,11 +66,22 @@ const AdminProductList = () => {
                         ${product.price}
                       </p>
                       <p className="text-sm font-medium text-gray-900">
-                      ${discountPrice(product)}
+                        ${discountPrice(product)}
                       </p>
                     </div>
                   </div>
-             
+                </div>
+                <div className="flex gap-2 justify-center">
+                  {product.deleted && (
+                    <span className="uppercase tracking-widest inline-flex items-center rounded-md bg-red-600 px-2 py-1 text-sm font-medium text-white ring-1 ring-inset ring-red-700/10">
+                      DELETED
+                    </span>
+                  )}
+                  {product.stock < 1 && (
+                    <span className="uppercase tracking-widest inline-flex items-center rounded-md bg-orange-600 px-2 py-1 text-sm font-medium text-white ring-1 ring-inset ring-orange-700/10">
+                      Out f Stock
+                    </span>
+                  )}
                 </div>
                 <div className="flex justify-center mt-3">
                   <Link

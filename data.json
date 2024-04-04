@@ -5,7 +5,7 @@
       "description": "An apple mobile which is nothing like apple",
       "price": 549.98,
       "discountPercentage": 12.96,
-      "stock": 94,
+      "stock": 0,
       "brand": "Apple",
       "category": "smartphones",
       "thumbnail": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",

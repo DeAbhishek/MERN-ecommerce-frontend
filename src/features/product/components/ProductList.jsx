@@ -57,10 +57,17 @@ export default function ProductList() {
                         ${product.price}
                       </p>
                       <p className="text-sm font-medium text-gray-900">
-                      ${discountPrice(product)}
+                        ${discountPrice(product)}
                       </p>
                     </div>
                   </div>
+                </div>
+                <div className="flex justify-center mt-1">
+                  {product.stock < 1 && (
+                    <span className="uppercase tracking-widest inline-flex items-center rounded-md bg-orange-600 px-2 py-1 text-sm font-medium text-white ring-1 ring-inset ring-orange-700/10">
+                      Out f Stock
+                    </span>
+                  )}
                 </div>
               </Link>
             ))}

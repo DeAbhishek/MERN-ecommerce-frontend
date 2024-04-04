@@ -7,7 +7,7 @@ import {
   fetchProductDetailsByIdAsync,
   selectedProductDetails,
 } from "../productSlice";
-import { addToCartAsync } from "../../cart/cartSlice";
+import { addToCartAsync, selectCart } from "../../cart/cartSlice";
 import { selectUserInfo } from "../../user/userSlice";
 import { discountPrice } from "../../../constant";
 
@@ -40,13 +40,22 @@ function classNames(...classes) {
 const ProductDetails = () => {
   const product = useSelector(selectedProductDetails);
   const user = useSelector(selectUserInfo);
+  const cartItem = useSelector(selectCart);
   const dispatch = useDispatch();
   const params = useParams();
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
 
-  const handleCart = (item) => {
-    const addedProduct = { ...product, quantity: 1, user: user.id };
+  const handleCart = () => {
+    console.log(cartItem.findIndex((item) => item.productId === product.id));
+    if (cartItem.findIndex((item) => item.productId === product.id) >= 0)
+      return;
+    const addedProduct = {
+      ...product,
+      productId: product.id,
+      quantity: 1,
+      user: user.id,
+    };
     delete addedProduct["id"];
     dispatch(addToCartAsync(addedProduct));
   };
