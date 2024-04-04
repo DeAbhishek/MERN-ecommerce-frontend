@@ -1,15 +1,12 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
-import { useSelector } from "react-redux";
-import { totalItems } from "../features/product/productSlice";
 import { ITEMS_PER_PAGE } from "../constant";
 import { useEffect } from "react";
 
-const Pagination = ({ page, setPage, sort }) => {
-  const totalProducts = useSelector(totalItems);
-  const totalPages = Math.ceil(totalProducts / ITEMS_PER_PAGE);
+const Pagination = ({ page, setPage, sort = "", totalItems }) => {
+  const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
   useEffect(() => {
     setPage(1);
-  }, [setPage, totalProducts, sort]);
+  }, [setPage, totalItems, sort]);
   return (
     <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden">
@@ -41,11 +38,11 @@ const Pagination = ({ page, setPage, sort }) => {
             </span>{" "}
             to{" "}
             <span className="font-medium">
-              {page * ITEMS_PER_PAGE > totalProducts
-                ? totalProducts
+              {page * ITEMS_PER_PAGE > totalItems
+                ? totalItems
                 : page * ITEMS_PER_PAGE}
             </span>{" "}
-            of <span className="font-medium">{totalProducts}</span> results
+            of <span className="font-medium">{totalItems}</span> results
           </p>
         </div>
         <div>

@@ -2463,28 +2463,7 @@
       "id": 2
     }
   ],
-  "cart": [
-    {
-      "title": "iPhone X",
-      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "price": 899,
-      "discountPercentage": 17.94,
-      "rating": 4.44,
-      "stock": 34,
-      "brand": "Apple",
-      "category": "smartphones",
-      "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/2/1.jpg",
-        "https://cdn.dummyjson.com/product-images/2/2.jpg",
-        "https://cdn.dummyjson.com/product-images/2/3.jpg",
-        "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
-      ],
-      "quantity": 1,
-      "user": 1,
-      "id": 1
-    }
-  ],
+  "cart": [],
   "orders": [
     {
       "items": [
@@ -2525,7 +2504,7 @@
         "pincode": "1234567890"
       },
       "paymentMethod": "cash",
-      "status": "pending",
+      "status": "shipped",
       "id": 1
     },
     {
@@ -2608,7 +2587,7 @@
         "pincode": "1234567890"
       },
       "paymentMethod": "cash",
-      "status": "pending",
+      "status": "pandings",
       "id": 2
     },
     {
@@ -2687,13 +2666,13 @@
         "name": "Abhishek De",
         "email": "aaaa@ga.com",
         "phone": "7980804436",
-        "street": "qwetyuinvb ghjkg v b fmnbkj skj  jnbv jnbj ljn",
+        "street": "Garia",
         "city": "Kolkata",
         "state": "WB",
         "pincode": "1234567890"
       },
       "paymentMethod": "cash",
-      "status": "pending",
+      "status": "delivered",
       "id": 3
     },
     {
@@ -2967,7 +2946,7 @@
         "pincode": "700000"
       },
       "paymentMethod": "card",
-      "status": "pending",
+      "status": "cancelled",
       "id": 7
     },
     {
@@ -3008,6 +2987,258 @@
       "paymentMethod": "card",
       "status": "pending",
       "id": 8
+    },
+    {
+      "items": [
+        {
+          "title": "iPhone X",
+          "description": "Meet the iPhone X - the device that's so smart that it responds to a tap, your voice, and even a glance. Elegantly designed with a large 14.73 cm (5.8) Super Retina screen and durable front-and-back glass, this smartphone is designed to impress. What's more, you can charge this iPhone wirelessly.",
+          "price": 899.89,
+          "discountPercentage": 19.18,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
+          "rating": 4.9,
+          "images": [
+            "https://cdn.dummyjson.com/product-images/2/1.jpg",
+            "https://cdn.dummyjson.com/product-images/2/2.jpg",
+            "https://cdn.dummyjson.com/product-images/2/3.jpg",
+            "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 2,
+          "id": 2
+        }
+      ],
+      "totalItem": 1,
+      "totalAmount": 727,
+      "user": {
+        "id": 2,
+        "email": "metiist.digital@gmail.com"
+      },
+      "selectedAddress": {
+        "name": "Puja Das",
+        "email": "metiist.digital@gmail.com",
+        "phone": "7980804436",
+        "street": "Saltlake",
+        "city": "Kolkata",
+        "state": "WB",
+        "pincode": "1234567890"
+      },
+      "paymentMethod": "card",
+      "status": "pending",
+      "id": 9
+    },
+    {
+      "items": [
+        {
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 899,
+          "discountPercentage": 17.94,
+          "rating": 4.44,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/2/1.jpg",
+            "https://cdn.dummyjson.com/product-images/2/2.jpg",
+            "https://cdn.dummyjson.com/product-images/2/3.jpg",
+            "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        },
+        {
+          "title": "Samsung Galaxy Book",
+          "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
+          "price": 1499,
+          "discountPercentage": 4.15,
+          "rating": 4.25,
+          "stock": 50,
+          "brand": "Samsung",
+          "category": "laptops",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/7/1.jpg",
+            "https://cdn.dummyjson.com/product-images/7/2.jpg",
+            "https://cdn.dummyjson.com/product-images/7/3.jpg",
+            "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 2
+        }
+      ],
+      "totalItem": 2,
+      "totalAmount": 2175,
+      "user": {
+        "id": 1,
+        "email": "aaaa@ga.com"
+      },
+      "selectedAddress": {
+        "name": "Arpan Das",
+        "email": "ade@gmail.com",
+        "phone": "7980804436",
+        "street": "Saltlake",
+        "city": "KOLKATA",
+        "state": "WEST BENGAL",
+        "pincode": "700094"
+      },
+      "paymentMethod": "cash",
+      "status": "pending",
+      "id": 10
+    },
+    {
+      "items": [
+        {
+          "title": "iPhone X",
+          "description": "Meet the iPhone X - the device that's so smart that it responds to a tap, your voice, and even a glance. Elegantly designed with a large 14.73 cm (5.8) Super Retina screen and durable front-and-back glass, this smartphone is designed to impress. What's more, you can charge this iPhone wirelessly.",
+          "price": 899.89,
+          "discountPercentage": 19.18,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
+          "rating": 4.9,
+          "images": [
+            "https://cdn.dummyjson.com/product-images/2/1.jpg",
+            "https://cdn.dummyjson.com/product-images/2/2.jpg",
+            "https://cdn.dummyjson.com/product-images/2/3.jpg",
+            "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 2,
+          "id": 1
+        },
+        {
+          "title": "Samsung Universe 9",
+          "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+          "price": 1249,
+          "discountPercentage": 15.46,
+          "stock": 36,
+          "brand": "Samsung",
+          "category": "smartphones",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
+          "rating": 4.09,
+          "images": [
+            "https://cdn.dummyjson.com/product-images/3/1.jpg",
+            "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
+            "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
+            "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg"
+          ],
+          "deleted": true,
+          "quantity": 1,
+          "user": 2,
+          "id": 2
+        }
+      ],
+      "totalItem": 2,
+      "totalAmount": 1783,
+      "user": {
+        "id": 2,
+        "email": "metiist.digital@gmail.com"
+      },
+      "selectedAddress": {
+        "name": "Arpita De",
+        "email": "arpita@gmail.com",
+        "phone": "7980804436",
+        "street": "New Garia",
+        "city": "Kolkata",
+        "state": "West Bengal",
+        "pincode": "700000"
+      },
+      "paymentMethod": "cash",
+      "status": "pending",
+      "id": 11
+    },
+    {
+      "items": [
+        {
+          "title": "iPhone 9",
+          "description": "An apple mobile which is nothing like apple",
+          "price": 549.98,
+          "discountPercentage": 12.96,
+          "stock": 94,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
+          "rating": 4.69,
+          "images": [
+            "https://cdn.dummyjson.com/product-images/1/1.jpg",
+            "https://cdn.dummyjson.com/product-images/1/2.jpg",
+            "https://cdn.dummyjson.com/product-images/1/3.jpg",
+            "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
+          ],
+          "quantity": 3,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalItem": 3,
+      "totalAmount": 1437,
+      "user": {
+        "id": 1,
+        "email": "aaaa@ga.com"
+      },
+      "selectedAddress": {
+        "name": "Bristi Das",
+        "email": "bristi@gmail.com",
+        "phone": "7980804436",
+        "street": "New Alipore",
+        "city": "Kolkata",
+        "state": "West Bengal",
+        "pincode": "7000000"
+      },
+      "paymentMethod": "cash",
+      "status": "pending",
+      "id": 12
+    },
+    {
+      "items": [
+        {
+          "title": "Malai Maxi Dress",
+          "description": "Ready to wear, Unique design according to modern standard fashion, Best fitting ,Imported stuff",
+          "price": 50,
+          "discountPercentage": 5.07,
+          "rating": 4.67,
+          "stock": 96,
+          "brand": "IELGY",
+          "category": "womens-dresses",
+          "thumbnail": "https://cdn.dummyjson.com/product-images/45/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/45/1.jpg",
+            "https://cdn.dummyjson.com/product-images/45/2.webp",
+            "https://cdn.dummyjson.com/product-images/45/3.jpg",
+            "https://cdn.dummyjson.com/product-images/45/4.jpg",
+            "https://cdn.dummyjson.com/product-images/45/thumbnail.jpg"
+          ],
+          "quantity": 3,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalItem": 3,
+      "totalAmount": 141,
+      "user": {
+        "id": 1,
+        "email": "aaaa@ga.com"
+      },
+      "selectedAddress": {
+        "name": "Puja Das",
+        "email": "puja@ga.com",
+        "phone": "7980804436",
+        "street": "Garia",
+        "city": "Kolkata",
+        "state": "WB",
+        "pincode": "700000"
+      },
+      "paymentMethod": "card",
+      "status": "shipped",
+      "id": 13
     }
   ]
 }

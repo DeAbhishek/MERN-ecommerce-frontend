@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchLoggedInUserOrderAsync, loggedInUserOrders, selectUserInfo } from "../userSlice";
+import { discountPrice } from "../../../constant";
 
 const UserOrders = () => {
   const dispatch = useDispatch();
@@ -43,7 +44,7 @@ const UserOrders = () => {
                             <p>{product.title}</p>
                           </h3>
                           <p className="ml-4">
-                            ${product.price}{" "}
+                          ${discountPrice(product)}{" "}
                             {product.quantity > 1 && <>× {product.quantity}</>}
                           </p>
                         </div>

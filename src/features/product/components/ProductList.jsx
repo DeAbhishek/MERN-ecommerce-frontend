@@ -9,6 +9,7 @@ import {
   fetchBrandsAsync,
   fetchCategoriesAsync,
 } from "../productSlice";
+import { discountPrice } from "../../../constant";
 
 export default function ProductList() {
   const products = useSelector(allProducts);
@@ -56,10 +57,7 @@ export default function ProductList() {
                         ${product.price}
                       </p>
                       <p className="text-sm font-medium text-gray-900">
-                        $
-                        {Math.round(
-                          product.price * (1 - product.discountPercentage / 100)
-                        )}
+                      ${discountPrice(product)}
                       </p>
                     </div>
                   </div>

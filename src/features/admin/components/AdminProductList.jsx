@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import SidebarFilters from "../../../components/SidebarFilters";
 import { Link } from "react-router-dom";
 import { StarIcon } from "@heroicons/react/20/solid";
+import { discountPrice } from "../../../constant";
 
 const AdminProductList = () => {
   const products = useSelector(allProducts);
@@ -32,7 +33,7 @@ const AdminProductList = () => {
           </Link>
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
             {products.map((product) => (
-              <Link to={`/product-details/${product.id}`} key={product.id}>
+              <Link to={`/amdin/product-details/${product.id}`} key={product.id}>
                 <div className="group relative border border-gray-200 p-2">
                   <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
                     <img
@@ -66,10 +67,7 @@ const AdminProductList = () => {
                         ${product.price}
                       </p>
                       <p className="text-sm font-medium text-gray-900">
-                        $
-                        {Math.round(
-                          product.price * (1 - product.discountPercentage / 100)
-                        )}
+                      ${discountPrice(product)}
                       </p>
                     </div>
                   </div>

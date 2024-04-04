@@ -9,7 +9,7 @@ import {
 } from "../productSlice";
 import { addToCartAsync } from "../../cart/cartSlice";
 import { selectUserInfo } from "../../user/userSlice";
-
+import { discountPrice } from "../../../constant";
 
 const colors = [
   { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
@@ -141,8 +141,11 @@ const ProductDetails = () => {
           {/* Options */}
           <div className="mt-4 lg:row-span-3 lg:mt-0">
             <h2 className="sr-only">Product information</h2>
+            <p className="text-3xl tracking-tight text-gray-500 line-through">
+              ${product.price}
+            </p>
             <p className="text-3xl tracking-tight text-gray-900">
-              $ {product.price}
+              ${discountPrice(product)}
             </p>
 
             {/* Reviews */}

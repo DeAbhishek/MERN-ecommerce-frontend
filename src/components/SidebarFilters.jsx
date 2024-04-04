@@ -14,6 +14,7 @@ import {
   allBrands,
   allCategories,
   fetchProductsByFilterAsync,
+  totalItems,
 } from "../features/product/productSlice";
 import { ITEMS_PER_PAGE } from "../constant";
 
@@ -30,6 +31,8 @@ function classNames(...classes) {
 const SidebarFilters = ({ children }) => {
   const brands = useSelector(allBrands);
   const categories = useSelector(allCategories);
+  const totalProducts = useSelector(totalItems);
+
   const dispatch = useDispatch();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [filter, setFilter] = useState([]);
@@ -162,7 +165,12 @@ const SidebarFilters = ({ children }) => {
               <div className="lg:col-span-3">{children}</div>
             </div>
           </section>
-          <Pagination page={page} setPage={setPage} sort={sort} />
+          <Pagination
+            page={page}
+            setPage={setPage}
+            sort={sort}
+            totalItems={totalProducts}
+          />
         </main>
       </div>
     </div>

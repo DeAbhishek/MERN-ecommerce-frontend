@@ -6,12 +6,13 @@ import {
   selectCart,
   updateCartAsync,
 } from "../features/cart/cartSlice";
+import { discountPrice } from "../constant";
 
 const Cart = ({ headerMargin, children }) => {
   const dispatch = useDispatch();
   const cart = useSelector(selectCart);
   const totalAmount = cart.reduce(
-    (amount, item) => amount + item.price * item.quantity,
+    (amount, item) => amount + discountPrice(item) * item.quantity,
     0
   );
   const totalItem = cart.reduce((total, item) => total + item.quantity, 0);
@@ -71,7 +72,7 @@ const Cart = ({ headerMargin, children }) => {
                         <p>{product.title}</p>
                       </h3>
                       <p className="ml-4">
-                        ${product.price}{" "}
+                        ${discountPrice(product)}{" "}
                         {product.quantity > 1 && <>× {product.quantity}</>}
                       </p>
                     </div>
@@ -124,7 +125,7 @@ const Cart = ({ headerMargin, children }) => {
         </div>
         <p className="mt-0.5 text-sm text-gray-500">Total Items {totalItem}</p>
         <div className="mt-6">
-        {children}
+          {children}
           {/* <Link
             to={link}
             className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
@@ -135,7 +136,6 @@ const Cart = ({ headerMargin, children }) => {
         <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
           <p>
             or{" "}
-            
             <Link to={"/"}>
               <button
                 type="button"

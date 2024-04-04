@@ -9,6 +9,7 @@ import {
   createOrderAsync,
   selectCurrentOrder,
 } from "../features/order/orderSlice";
+import { discountPrice } from "../constant";
 
 const Checkout = () => {
   const cartItems = useSelector(selectCart);
@@ -33,7 +34,7 @@ const Checkout = () => {
   };
 
   const totalAmount = cartItems.reduce(
-    (amount, item) => amount + item.price * item.quantity,
+    (amount, item) => amount + discountPrice(item) * item.quantity,
     0
   );
   const totalItem = cartItems.reduce((total, item) => total + item.quantity, 0);
