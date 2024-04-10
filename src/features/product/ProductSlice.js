@@ -62,28 +62,28 @@ export const productSlice = createSlice({
       .addCase(fetchProductsByFilterAsync.fulfilled, (state, action) => {
         state.products = action.payload.products;
         state.totalItems = action.payload.totalItems;
-        state.status = "idle";
+        state.status = "success";
       })
       .addCase(fetchCategoriesAsync.pending, (state) => {
         state.status = "loading";
       })
       .addCase(fetchCategoriesAsync.fulfilled, (state, action) => {
         state.categories = action.payload;
-        state.status = "idle";
+        state.status = "success";
       })
       .addCase(fetchBrandsAsync.pending, (state) => {
         state.status = "loading";
       })
       .addCase(fetchBrandsAsync.fulfilled, (state, action) => {
         state.brands = action.payload;
-        state.status = "idle";
+        state.status = "success";
       })
       .addCase(fetchProductDetailsByIdAsync.pending, (state) => {
         state.status = "loading";
       })
       .addCase(fetchProductDetailsByIdAsync.fulfilled, (state, action) => {
         state.details = action.payload;
-        state.status = "idle";
+        state.status = "success";
       })
       .addCase(createProductAsync.pending, (state) => {
         state.status = "loading";
@@ -105,6 +105,7 @@ export const productSlice = createSlice({
           (product) => product.id === action.payload.id
         );
         state.products[index] = action.payload;
+        state.details = action.payload;
       })
       .addCase(updateProductAsync.rejected, (state, action) => {
         state.status = "failed";
@@ -120,5 +121,6 @@ export const totalItems = (state) => state.product.totalItems;
 export const allCategories = (state) => state.product.categories;
 export const allBrands = (state) => state.product.brands;
 export const selectedProductDetails = (state) => state.product.details;
+export const selectedProductStatus = (state) => state.product.status;
 
 export default productSlice.reducer;

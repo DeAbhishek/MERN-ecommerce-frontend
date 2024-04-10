@@ -1,16 +1,23 @@
-import React from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
   deleteItemFromCartAsync,
   selectCart,
+  selectCartStatus,
   updateCartAsync,
 } from "../features/cart/cartSlice";
 import { discountPrice } from "../constant";
+import { Grid } from "react-loader-spinner";
+import Modals from "./Modals";
 
 const Cart = ({ headerMargin, children }) => {
   const dispatch = useDispatch();
   const cart = useSelector(selectCart);
+  const status = useSelector(selectCartStatus);
+
+  const [openModal, setOpenModal] = useState(null);
+
   const totalAmount = cart.reduce(
     (amount, item) => amount + discountPrice(item) * item.quantity,
     0
@@ -47,12 +54,22 @@ const Cart = ({ headerMargin, children }) => {
     </div>
   ) : (
     <>
-      <div className="px-4 pb-6 sm:px-6">
+      <div className="px-4 pb-6 sm:px-6 relative">
         <h1
           className={`text-4xl font-bold tracking-tight text-gray-900 ${headerMargin}`}
         >
           Cart
         </h1>
+        <Grid
+          visible={status === "loading"}
+          height="80"
+          width="80"
+          color="#4f46e5"
+          radius="9"
+          ariaLabel="three-dots-loading"
+          wrapperStyle={{}}
+          wrapperClass="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        />
         <div className="flow-root">
           <ul className="-my-6 divide-y divide-gray-200">
             {cart.map((product) => (
@@ -102,10 +119,18 @@ const Cart = ({ headerMargin, children }) => {
                     </div>
 
                     <div className="flex">
+                      <Modals
+                        title={`Delete ${product.title}`}
+                        message={`Would you want to remove ${product.title} from your cart?`}
+                        btnName="Delete"
+                        deleteAction={() => handleDelete(product.id)}
+                        cancelAction={() => setOpenModal(null)}
+                        showModal={openModal === product.id}
+                      />
                       <button
                         type="button"
-                        onClick={() => handleDelete(product.id)}
-                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                        onClick={() => setOpenModal(product.id)}
+                        className="font-medium text-indigo-600 hover:text-indigo-500 px-1"
                       >
                         Remove
                       </button>

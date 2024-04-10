@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useAlert } from "react-alert";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
 import { Link, useParams } from "react-router-dom";
@@ -6,10 +7,12 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchProductDetailsByIdAsync,
   selectedProductDetails,
+  selectedProductStatus,
 } from "../productSlice";
 import { addToCartAsync, selectCart } from "../../cart/cartSlice";
 import { selectUserInfo } from "../../user/userSlice";
 import { discountPrice } from "../../../constant";
+import { Grid } from "react-loader-spinner";
 
 const colors = [
   { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
@@ -38,7 +41,9 @@ function classNames(...classes) {
 }
 
 const ProductDetails = () => {
+  const alert = useAlert();
   const product = useSelector(selectedProductDetails);
+  const status = useSelector(selectedProductStatus);
   const user = useSelector(selectUserInfo);
   const cartItem = useSelector(selectCart);
   const dispatch = useDispatch();
@@ -47,24 +52,37 @@ const ProductDetails = () => {
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
 
   const handleCart = () => {
-    console.log(cartItem.findIndex((item) => item.productId === product.id));
-    if (cartItem.findIndex((item) => item.productId === product.id) >= 0)
-      return;
-    const addedProduct = {
-      ...product,
-      productId: product.id,
-      quantity: 1,
-      user: user.id,
-    };
-    delete addedProduct["id"];
-    dispatch(addToCartAsync(addedProduct));
+    // console.log(cartItem.findIndex((item) => item.productId === product.id));
+    if (cartItem.findIndex((item) => item.productId === product.id) >= 0) {
+      alert.info("Item Already Added!");
+    } else {
+      const addedProduct = {
+        ...product,
+        productId: product.id,
+        quantity: 1,
+        user: user.id,
+      };
+      delete addedProduct["id"];
+      dispatch(addToCartAsync(addedProduct));
+      alert.success("Item Added to Cart");
+    }
   };
 
   useEffect(() => {
     dispatch(fetchProductDetailsByIdAsync(params.id));
   }, [dispatch, params.id]);
   return (
-    <div className="bg-white">
+    <div className="bg-white relative">
+      <Grid
+        visible={status === "loading"}
+        height="80"
+        width="80"
+        color="#4f46e5"
+        radius="9"
+        ariaLabel="three-dots-loading"
+        wrapperStyle={{}}
+        wrapperClass="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      />
       <div className="pt-6">
         <nav aria-label="Breadcrumb">
           <ol className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">

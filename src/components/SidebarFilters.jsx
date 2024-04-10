@@ -162,7 +162,7 @@ const SidebarFilters = ({ children }) => {
               <DesktopFilter onHandleFilter={handleFilter} filters={filters} />
 
               {/* Product grid */}
-              <div className="lg:col-span-3">{children}</div>
+              <div className="lg:col-span-3 relative">{children}</div>
             </div>
           </section>
           <Pagination

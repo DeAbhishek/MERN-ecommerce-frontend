@@ -23,6 +23,8 @@ import ProtectedAdmin from "./features/auth/components/ProtectedAdmin";
 import AdminProductDetailsPage from "./pages/AdminProductDetailsPage";
 import AdminProductForm from "./pages/AdminProductForm";
 import AdminOrdersPage from "./pages/AdminOrdersPage";
+import AboutUsPage from "./pages/AboutUsPage";
+import ContactUsPage from "./pages/ContactUsPage";
 
 const router = createBrowserRouter([
   {
@@ -136,6 +138,14 @@ const router = createBrowserRouter([
   {
     path: "/forgot-password",
     element: <ForgotPasswordPage />,
+  },
+  {
+    path: "/about-us",
+    element: <AboutUsPage />,
+  },
+  {
+    path: "/contact-us",
+    element: <ContactUsPage />,
   },
   {
     path: "*",

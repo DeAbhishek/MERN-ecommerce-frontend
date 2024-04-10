@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
+import { Grid } from "react-loader-spinner";
 import SidebarFilters from "../../../components/SidebarFilters";
 import { useEffect } from "react";
 import {
@@ -8,11 +9,13 @@ import {
   allProducts,
   fetchBrandsAsync,
   fetchCategoriesAsync,
+  selectedProductStatus,
 } from "../productSlice";
 import { discountPrice } from "../../../constant";
 
 export default function ProductList() {
   const products = useSelector(allProducts);
+  const status = useSelector(selectedProductStatus);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,6 +26,17 @@ export default function ProductList() {
   }, [dispatch]);
   return (
     <SidebarFilters>
+      <Grid
+        visible={status === "loading"}
+        height="80"
+        width="80"
+        color="#4f46e5"
+        radius="9"
+        ariaLabel="three-dots-loading"
+        wrapperStyle={{}}
+        wrapperClass="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      />
+
       <div className="bg-white">
         <div className="mx-auto max-w-2xl px-4 sm:px-3 lg:max-w-7xl lg:px-8">
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">

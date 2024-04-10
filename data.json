@@ -34,7 +34,8 @@
         "https://cdn.dummyjson.com/product-images/2/3.jpg",
         "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
       ],
-      "id": 2
+      "id": 2,
+      "deleted": true
     },
     {
       "title": "Samsung Universe 9",
@@ -72,7 +73,8 @@
         "https://cdn.dummyjson.com/product-images/4/3.jpg",
         "https://cdn.dummyjson.com/product-images/4/4.jpg",
         "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg"
-      ]
+      ],
+      "deleted": true
     },
     {
       "id": 5,
@@ -89,7 +91,8 @@
         "https://cdn.dummyjson.com/product-images/5/1.jpg",
         "https://cdn.dummyjson.com/product-images/5/2.jpg",
         "https://cdn.dummyjson.com/product-images/5/3.jpg"
-      ]
+      ],
+      "deleted": true
     },
     {
       "id": 6,
@@ -107,7 +110,8 @@
         "https://cdn.dummyjson.com/product-images/6/2.jpg",
         "https://cdn.dummyjson.com/product-images/6/3.png",
         "https://cdn.dummyjson.com/product-images/6/4.jpg"
-      ]
+      ],
+      "deleted": true
     },
     {
       "id": 7,
@@ -125,7 +129,8 @@
         "https://cdn.dummyjson.com/product-images/7/2.jpg",
         "https://cdn.dummyjson.com/product-images/7/3.jpg",
         "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg"
-      ]
+      ],
+      "deleted": true
     },
     {
       "id": 8,
@@ -2461,9 +2466,37 @@
         }
       ],
       "id": 2
+    },
+    {
+      "email": "deabhishek06@gmail.com",
+      "password": "Mitali123@",
+      "id": 3
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "title": "Samsung Universe 9",
+      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+      "price": 1249,
+      "discountPercentage": 15.46,
+      "stock": 36,
+      "brand": "Samsung",
+      "category": "smartphones",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
+      "rating": 4.09,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/3/1.jpg",
+        "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
+        "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
+        "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg"
+      ],
+      "deleted": true,
+      "productId": 3,
+      "quantity": 1,
+      "user": 3,
+      "id": 2
+    }
+  ],
   "orders": [
     {
       "items": [
