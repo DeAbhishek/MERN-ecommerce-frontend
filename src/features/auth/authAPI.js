@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const USER_URL = "http://localhost:8080/users";
+const USER_URL = "http://localhost:8080/auth";
 
 export const createUser = async (userData) => {
-  const response = await axios.post(USER_URL, {
+  const response = await axios.post(`${USER_URL}/signup`, {
     email: userData.email,
     password: userData.password,
   });
@@ -11,21 +11,12 @@ export const createUser = async (userData) => {
 };
 
 export const checkUser = async (logInData) => {
-  let email = logInData.email;
-  let password = logInData.password;
-
-  const response = await axios
-    .get(`${USER_URL}?email=${email}`)
-    .then((res) =>
-      res.data.length
-        ? res.data[0].password === password
-          ? res.data[0]
-          : "Invalid Credentials"
-        : "User Not Found"
-    )
-    .catch((error) => error);
-
-  return response;
+  try {
+    const { data } = await axios.post(`${USER_URL}/login`, logInData);
+    return data;
+  } catch (error) {
+    throw new Error(error.response.data.message);
+  }
 };
 
 export const signOut = (userId) =>

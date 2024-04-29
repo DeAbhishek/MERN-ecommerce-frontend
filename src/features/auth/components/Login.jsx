@@ -1,11 +1,12 @@
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
-import { checkUserAsync, selectLoggedInUser } from "../authSlice";
+import { checkUserAsync, selectError, selectLoggedInUser } from "../authSlice";
 
 const Login = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
+  const loginError =  useSelector(selectError)
 
   const {
     register,
@@ -28,9 +29,9 @@ const Login = () => {
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
           Log in to your account
         </h2>
-        {user && (
+        {loginError && (
           <p className="mt-1 text-sm text-red-600 text-center font-semibold">
-            {user}
+            {loginError}
           </p>
         )}
       </div>
