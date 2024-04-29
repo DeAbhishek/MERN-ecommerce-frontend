@@ -19,13 +19,13 @@ const Cart = ({ headerMargin, children }) => {
   const [openModal, setOpenModal] = useState(null);
 
   const totalAmount = cart.reduce(
-    (amount, item) => amount + discountPrice(item) * item.quantity,
+    (amount, item) => amount + discountPrice(item.product) * item.quantity,
     0
   );
   const totalItem = cart.reduce((total, item) => total + item.quantity, 0);
 
   const handleQty = (e, product) => {
-    dispatch(updateCartAsync({ ...product, quantity: +e.target.value }));
+    dispatch(updateCartAsync({ id: product.id, quantity: +e.target.value }));
   };
 
   const handleDelete = (productId) => {
@@ -72,12 +72,12 @@ const Cart = ({ headerMargin, children }) => {
         />
         <div className="flow-root">
           <ul className="-my-6 divide-y divide-gray-200">
-            {cart.map((product) => (
-              <li key={product.id} className="flex py-6">
+            {cart.map((item) => (
+              <li key={item.product.id} className="flex py-6">
                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                   <img
-                    src={product.thumbnail}
-                    alt={product.title}
+                    src={item.product.thumbnail}
+                    alt={item.product.title}
                     className="h-full w-full object-cover object-center"
                   />
                 </div>
@@ -86,15 +86,15 @@ const Cart = ({ headerMargin, children }) => {
                   <div>
                     <div className="flex justify-between text-base font-medium text-gray-900">
                       <h3>
-                        <p>{product.title}</p>
+                        <p>{item.product.title}</p>
                       </h3>
                       <p className="ml-4">
-                        ${discountPrice(product)}{" "}
-                        {product.quantity > 1 && <>× {product.quantity}</>}
+                        ${discountPrice(item.product)}{" "}
+                        {item.quantity > 1 && <>× {item.quantity}</>}
                       </p>
                     </div>
                     <p className="mt-1 text-sm text-gray-500">
-                      {product.brand}
+                      {item.product.brand}
                     </p>
                   </div>
                   <div className="flex flex-1 items-end justify-between text-sm">
@@ -107,8 +107,8 @@ const Cart = ({ headerMargin, children }) => {
                       </label>
                       <select
                         id="qty"
-                        onChange={(e) => handleQty(e, product)}
-                        value={product.quantity}
+                        onChange={(e) => handleQty(e, item.product)}
+                        value={item.quantity}
                       >
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -120,16 +120,16 @@ const Cart = ({ headerMargin, children }) => {
 
                     <div className="flex">
                       <Modals
-                        title={`Delete ${product.title}`}
-                        message={`Would you want to remove ${product.title} from your cart?`}
+                        title={`Delete ${item.product.title}`}
+                        message={`Would you want to remove ${item.product.title} from your cart?`}
                         btnName="Delete"
-                        deleteAction={() => handleDelete(product.id)}
+                        deleteAction={() => handleDelete(item.id)}
                         cancelAction={() => setOpenModal(null)}
-                        showModal={openModal === product.id}
+                        showModal={openModal === item.product.id}
                       />
                       <button
                         type="button"
-                        onClick={() => setOpenModal(product.id)}
+                        onClick={() => setOpenModal(item.id)}
                         className="font-medium text-indigo-600 hover:text-indigo-500 px-1"
                       >
                         Remove

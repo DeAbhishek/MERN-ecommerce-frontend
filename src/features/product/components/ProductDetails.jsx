@@ -52,17 +52,14 @@ const ProductDetails = () => {
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
 
   const handleCart = () => {
-    // console.log(cartItem.findIndex((item) => item.productId === product.id));
-    if (cartItem.findIndex((item) => item.productId === product.id) >= 0) {
+    if (cartItem.findIndex((item) => item.product.id === product.id) >= 0) {
       alert.info("Item Already Added!");
     } else {
       const addedProduct = {
-        ...product,
-        productId: product.id,
+        product: product.id,
         quantity: 1,
         user: user.id,
       };
-      delete addedProduct["id"];
       dispatch(addToCartAsync(addedProduct));
       alert.success("Item Added to Cart");
     }

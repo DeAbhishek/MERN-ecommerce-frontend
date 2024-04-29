@@ -34,7 +34,7 @@ const Checkout = () => {
   };
 
   const totalAmount = cartItems.reduce(
-    (amount, item) => amount + discountPrice(item) * item.quantity,
+    (amount, item) => amount + discountPrice(item.product) * item.quantity,
     0
   );
   const totalItem = cartItems.reduce((total, item) => total + item.quantity, 0);
