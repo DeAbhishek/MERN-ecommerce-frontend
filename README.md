@@ -23,3 +23,7 @@ npm install --save react-alert react-alert-template-basic
 # if an error shows for react-alert installation then use 
 
 npm config set legacy-peer-deps true
+
+# start with npm i but if there is a error shows then use
+
+npm i --legacy-peer-deps
