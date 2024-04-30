@@ -129,7 +129,7 @@ const Cart = ({ headerMargin, children }) => {
                       />
                       <button
                         type="button"
-                        onClick={() => setOpenModal(item.id)}
+                        onClick={() => setOpenModal(item.product.id)}
                         className="font-medium text-indigo-600 hover:text-indigo-500 px-1"
                       >
                         Remove

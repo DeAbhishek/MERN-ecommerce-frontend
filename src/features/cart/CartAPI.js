@@ -13,7 +13,7 @@ export const fetchItemsByUserId = async (userId) => {
 };
 
 export const updateCart = async (updatedItem) => {
-  const response = await axios.put(
+  const response = await axios.patch(
     `${CART_URL}/${updatedItem.id}`,
     updatedItem
   );
