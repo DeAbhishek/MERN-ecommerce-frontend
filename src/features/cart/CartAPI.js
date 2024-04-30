@@ -1,6 +1,7 @@
 import axios from "axios";
+import { API_URL } from "../../constant";
 
-const CART_URL = "http://localhost:8080/cart";
+const CART_URL = `${API_URL}cart`;
 
 export const addToCart = async (item) => {
   const response = await axios.post(CART_URL, item);

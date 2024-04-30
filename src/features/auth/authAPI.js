@@ -1,6 +1,7 @@
 import axios from "axios";
+import { API_URL } from "../../constant";
 
-const USER_URL = "http://localhost:8080/auth";
+const USER_URL = `${API_URL}auth`;
 
 export const createUser = async (userData) => {
   const response = await axios.post(`${USER_URL}/signup`, {

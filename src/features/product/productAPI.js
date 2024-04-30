@@ -1,8 +1,9 @@
 import axios from "axios";
+import { API_URL } from "../../constant";
 
-const PRODUCT_URL = "http://localhost:8080/products";
-const CATEGORIES_URL = "http://localhost:8080/categories";
-const BRANDS_URL = "http://localhost:8080/brands";
+const PRODUCT_URL = `${API_URL}products`;
+const CATEGORIES_URL = `${API_URL}categories`;
+const BRANDS_URL = `${API_URL}brands`;
 
 export const fetchProductsByFilter = async (nwArr) => {
   let filterString = "";

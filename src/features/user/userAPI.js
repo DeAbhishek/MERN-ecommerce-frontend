@@ -1,8 +1,9 @@
 import axios from "axios";
+import { API_URL } from "../../constant";
 
-const USER_URL = "http://localhost:8080/users";
+const USER_URL = `${API_URL}users`;
 
-const ORDER_URL = "http://localhost:8080/orders";
+const ORDER_URL = `${API_URL}orders`;
 
 export const fetchLoggedInUserOrder = async (userID) => {
   const { data } = await axios.get(`${ORDER_URL}?users.id=${userID}`);
@@ -10,7 +11,7 @@ export const fetchLoggedInUserOrder = async (userID) => {
 };
 
 export const updateUser = async (updatedUserData) => {
-  const { data } = await axios.put(`${USER_URL}/${updatedUserData.id}`, updatedUserData);
+  const { data } = await axios.patch(`${USER_URL}/${updatedUserData.id}`, updatedUserData);
   return data;
 };
 
