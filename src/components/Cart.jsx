@@ -24,8 +24,8 @@ const Cart = ({ headerMargin, children }) => {
   );
   const totalItem = cart.reduce((total, item) => total + item.quantity, 0);
 
-  const handleQty = (e, product) => {
-    dispatch(updateCartAsync({ id: product.id, quantity: +e.target.value }));
+  const handleQty = (e, item) => {
+    dispatch(updateCartAsync({ id: item.id, quantity: +e.target.value }));
   };
 
   const handleDelete = (productId) => {
@@ -107,7 +107,7 @@ const Cart = ({ headerMargin, children }) => {
                       </label>
                       <select
                         id="qty"
-                        onChange={(e) => handleQty(e, item.product)}
+                        onChange={(e) => handleQty(e, item)}
                         value={item.quantity}
                       >
                         <option value="1">1</option>
