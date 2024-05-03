@@ -65,7 +65,7 @@ const Checkout = () => {
         noValidate
         onSubmit={handleSubmit((data) => {
           dispatch(
-            updateUserAsync({ ...user, addresses: [data, ...user.addresses] })
+            updateUserAsync({ ...user, addresses: [...user.addresses, data] })
           );
           reset();
         })}
