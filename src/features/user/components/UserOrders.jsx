@@ -31,8 +31,8 @@ const UserOrders = () => {
                   <li key={product.id} className="flex py-6">
                     <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                       <img
-                        src={product.thumbnail}
-                        alt={product.title}
+                        src={product.product.thumbnail}
+                        alt={product.product.title}
                         className="h-full w-full object-cover object-center"
                       />
                     </div>
@@ -41,15 +41,15 @@ const UserOrders = () => {
                       <div>
                         <div className="flex justify-between text-base font-medium text-gray-900">
                           <h3>
-                            <p>{product.title}</p>
+                            <p>{product.product.title}</p>
                           </h3>
                           <p className="ml-4">
-                          ${discountPrice(product)}{" "}
+                          ${discountPrice(product.product)}{" "}
                             {product.quantity > 1 && <>× {product.quantity}</>}
                           </p>
                         </div>
                         <p className="mt-1 text-sm text-gray-500">
-                          {product.brand}
+                          {product.product.brand}
                         </p>
                       </div>
                       <div className="flex flex-1 items-end justify-between text-sm">

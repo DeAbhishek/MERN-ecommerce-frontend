@@ -46,7 +46,7 @@ const Checkout = () => {
         items: cartItems,
         totalItem,
         totalAmount,
-        user: { id: user.id, email: user.email },
+        user: user.id,
         selectedAddress,
         paymentMethod,
         status: "pending",

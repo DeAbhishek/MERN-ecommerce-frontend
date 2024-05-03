@@ -12,13 +12,13 @@ export const fetchProductsByFilter = async (nwArr) => {
   }
   let sortString = nwArr[1];
   let pageString = nwArr[2];
-  const response1 = await axios.get(
+  const response = await axios.get(
     `${PRODUCT_URL}?${pageString}&${sortString}&${filterString}`
   );
-  const response2 = await axios.get(`${PRODUCT_URL}?${filterString}`);
+  const totalItems = await response.headers.get("X-Total-Count");
   return {
-    products: response1.data,
-    totalItems: response2.data.length,
+    products: response.data,
+    totalItems,
   };
 };
 
