@@ -7,12 +7,14 @@ import {
   createProductAsync,
   fetchProductDetailsByIdAsync,
   selectedProductDetails,
+  selectedProductStatus,
   updateProductAsync,
 } from "../../product/productSlice";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Modals from "../../../components/Modals";
+import { Grid } from "react-loader-spinner";
 
 const ProductForm = () => {
   const alert = useAlert();
@@ -23,6 +25,7 @@ const ProductForm = () => {
   const categories = useSelector(allCategories);
   const productDeatils = useSelector(selectedProductDetails);
 
+  const status = useSelector(selectedProductStatus);
   const [openModal, setOpenModal] = useState(null);
 
   const {
@@ -63,6 +66,18 @@ const ProductForm = () => {
 
   return (
     <>
+      <Grid
+        visible={status === "loading"}
+        height="80"
+        width="80"
+        color="#4f46e5"
+        radius="9"
+        ariaLabel="three-dots-loading"
+        wrapperStyle={{}}
+        wrapperClass="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      />
+
+
       <form
         className="bg-white p-5"
         noValidate
@@ -483,7 +498,7 @@ const ProductForm = () => {
           >
             Cancel
           </button>
-          {(productDeatils && !productDeatils?.deleted) && (
+          {productDeatils && !productDeatils?.deleted && (
             <button
               type="button"
               onClick={() => setOpenModal(true)}

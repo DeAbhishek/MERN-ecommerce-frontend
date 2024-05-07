@@ -5,14 +5,14 @@ import { discountPrice } from "../../../constant";
 
 const UserOrders = () => {
   const dispatch = useDispatch();
+  const orders=useSelector(loggedInUserOrders)
   const userInfo = useSelector(selectUserInfo);
-  const orders = useSelector(loggedInUserOrders);
   useEffect(() => {
     dispatch(fetchLoggedInUserOrderAsync(userInfo.id));
   }, [dispatch, userInfo]);
   return (
     <>
-      {orders.map((order) => (
+      {orders?.map((order) => (
         <div key={order.id} className="bg-white mb-3">
           <div className="px-4 py-6 sm:px-6">
             <div className="flex items-center justify-between">
@@ -44,7 +44,7 @@ const UserOrders = () => {
                             <p>{product.product.title}</p>
                           </h3>
                           <p className="ml-4">
-                          ${discountPrice(product.product)}{" "}
+                            ${discountPrice(product.product)}{" "}
                             {product.quantity > 1 && <>× {product.quantity}</>}
                           </p>
                         </div>
@@ -74,7 +74,9 @@ const UserOrders = () => {
             <div className="mt-0.5 text-sm text-gray-500">
               <p>Total Items {order.totalItem}</p>
             </div>
-            <p className="text-base font-medium text-gray-900 mt-3">Shipping Info.</p>
+            <p className="text-base font-medium text-gray-900 mt-3">
+              Shipping Info.
+            </p>
             <div className="flex justify-between gap-x-6">
               <div className="flex items-center min-w-0 gap-x-4">
                 <div className="min-w-0 flex-auto">

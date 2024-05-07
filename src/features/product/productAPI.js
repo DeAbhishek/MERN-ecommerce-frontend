@@ -43,7 +43,7 @@ export const createProduct = async (product) => {
 };
 
 export const updateProduct = async (updatedProduct) => {
-  const { data } = await axios.put(
+  const { data } = await axios.patch(
     `${PRODUCT_URL}/${updatedProduct.id}`,
     updatedProduct
   );

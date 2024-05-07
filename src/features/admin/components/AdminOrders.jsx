@@ -149,12 +149,12 @@ const AdminOrders = () => {
                             <img
                               alt=""
                               className="w-6 h-6 rounded-full"
-                              src={item.thumbnail}
+                              src={item.product.thumbnail}
                             />
                           </div>
                           <span>
-                            <strong>{item.title}</strong> - #{item.quantity} - $
-                            {discountPrice(item)}
+                            <strong>{item.product.title}</strong> - #{item.quantity} - $
+                            {discountPrice(item.product)}
                           </span>
                         </div>
                       ))}

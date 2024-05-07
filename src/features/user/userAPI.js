@@ -6,7 +6,7 @@ const USER_URL = `${API_URL}users`;
 const ORDER_URL = `${API_URL}orders`;
 
 export const fetchLoggedInUserOrder = async (userID) => {
-  const { data } = await axios.get(`${ORDER_URL}?userID=${userID}`);
+  const { data } = await axios.get(`${ORDER_URL}/user/${userID}`);
   return data;
 };
 

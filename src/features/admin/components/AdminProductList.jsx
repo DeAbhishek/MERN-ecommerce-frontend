@@ -4,16 +4,19 @@ import {
   fetchBrandsAsync,
   fetchCategoriesAsync,
   fetchProductsByFilterAsync,
+  selectedProductStatus,
 } from "../../product/productSlice";
 import { useEffect } from "react";
 import SidebarFilters from "../../../components/SidebarFilters";
 import { Link } from "react-router-dom";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { discountPrice } from "../../../constant";
+import { Grid } from "react-loader-spinner";
 
 const AdminProductList = () => {
   const products = useSelector(allProducts);
   const dispatch = useDispatch();
+  const status = useSelector(selectedProductStatus);
 
   useEffect(() => {
     let nwArr = ["", "", "_page=1&_limit=9"];
@@ -23,6 +26,18 @@ const AdminProductList = () => {
   }, [dispatch]);
   return (
     <SidebarFilters>
+      <Grid
+        visible={status === "loading"}
+        height="80"
+        width="80"
+        color="#4f46e5"
+        radius="9"
+        ariaLabel="three-dots-loading"
+        wrapperStyle={{}}
+        wrapperClass="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      />
+
+
       <div className="bg-white">
         <div className="mx-auto max-w-2xl px-4 sm:px-3 lg:max-w-7xl lg:px-8">
           <Link
