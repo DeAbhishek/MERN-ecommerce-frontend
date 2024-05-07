@@ -44,7 +44,7 @@ const ProductDetails = () => {
   const alert = useAlert();
   const product = useSelector(selectedProductDetails);
   const status = useSelector(selectedProductStatus);
-  const user = useSelector(selectUserInfo);
+  const userInfo = useSelector(selectUserInfo);
   const cartItem = useSelector(selectCart);
   const dispatch = useDispatch();
   const params = useParams();
@@ -58,7 +58,7 @@ const ProductDetails = () => {
       const addedProduct = {
         product: product.id,
         quantity: 1,
-        user: user.id,
+        user: userInfo.id,
       };
       dispatch(addToCartAsync(addedProduct));
       alert.success("Item Added to Cart");

@@ -5,11 +5,11 @@ import { discountPrice } from "../../../constant";
 
 const UserOrders = () => {
   const dispatch = useDispatch();
-  const user = useSelector(selectUserInfo);
+  const userInfo = useSelector(selectUserInfo);
   const orders = useSelector(loggedInUserOrders);
   useEffect(() => {
-    dispatch(fetchLoggedInUserOrderAsync(user.id));
-  }, [dispatch, user]);
+    dispatch(fetchLoggedInUserOrderAsync(userInfo.id));
+  }, [dispatch, userInfo]);
   return (
     <>
       {orders.map((order) => (

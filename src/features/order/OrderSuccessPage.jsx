@@ -8,11 +8,11 @@ import { selectUserInfo } from "../user/userSlice";
 const OrderSuccessPage = () => {
   const params = useParams();
   const dispatch = useDispatch();
-  const user = useSelector(selectUserInfo);
+  const userInfo = useSelector(selectUserInfo);
   useEffect(() => {
-    dispatch(resetCartAsync(user.id));
+    dispatch(resetCartAsync(userInfo.id));
     dispatch(resetCurrentOrder());
-  }, [dispatch, user]);
+  }, [dispatch, userInfo]);
 
   return !params.id ? (
     <Navigate to="/" replace={true} />

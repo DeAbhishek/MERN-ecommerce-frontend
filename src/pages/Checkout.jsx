@@ -13,7 +13,7 @@ import { discountPrice } from "../constant";
 
 const Checkout = () => {
   const cartItems = useSelector(selectCart);
-  const user = useSelector(selectUserInfo);
+  const userInfo = useSelector(selectUserInfo);
   const currentOrder = useSelector(selectCurrentOrder);
   const dispatch = useDispatch();
   const {
@@ -26,7 +26,7 @@ const Checkout = () => {
   const [paymentMethod, setPaymentMethod] = useState("cash");
 
   const handleAddress = (e) => {
-    setSelectedAddress(user.addresses[e.target.value]);
+    setSelectedAddress(userInfo.addresses[e.target.value]);
   };
 
   const handlePayment = (e) => {
@@ -46,7 +46,7 @@ const Checkout = () => {
         items: cartItems,
         totalItem,
         totalAmount,
-        user: user.id,
+        user: userInfo.id,
         selectedAddress,
         paymentMethod,
         status: "pending",
@@ -65,7 +65,7 @@ const Checkout = () => {
         noValidate
         onSubmit={handleSubmit((data) => {
           dispatch(
-            updateUserAsync({ ...user, addresses: [...user.addresses, data] })
+            updateUserAsync({ ...userInfo, addresses: [...userInfo.addresses, data] })
           );
           reset();
         })}
@@ -271,7 +271,7 @@ const Checkout = () => {
           </button>
         </div>
         <div className="my-5">
-          {user.addresses.length > 0 && (
+          {userInfo.addresses.length > 0 && (
             <>
               <h1 className="text-3xl font-bold tracking-tight leading-10 text-gray-900">
                 Addresses
@@ -281,7 +281,7 @@ const Checkout = () => {
               </p>
 
               <ul className="divide-y divide-gray-100">
-                {user.addresses.map((address, index) => (
+                {userInfo.addresses.map((address, index) => (
                   <li key={index} className="flex justify-between gap-x-6 py-5">
                     <label className="flex items-center min-w-0 gap-x-4">
                       <input

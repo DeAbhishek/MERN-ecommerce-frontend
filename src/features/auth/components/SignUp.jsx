@@ -12,7 +12,7 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
 
-  return user?.email ? (
+  return user?.id ? (
     <Navigate to="/" replace={true} />
   ) : (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">

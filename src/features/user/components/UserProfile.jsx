@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 
 const UserProfile = () => {
-  const user = useSelector(selectUserInfo);
+  const userInfo = useSelector(selectUserInfo);
   const dispatch = useDispatch();
   const [selectedAddressIndex, setSelectedAddressIndex] = useState(-1);
   const [showAddAddressForm, setShowAddAddressForm] = useState(false);
@@ -18,14 +18,14 @@ const UserProfile = () => {
   } = useForm();
 
   const handleEdit = (updatedAddress, index) => {
-    const newUser = { ...user, addresses: [...user.addresses] };
-    newUser.addresses.splice(index, 1, updatedAddress);
-    dispatch(updateUserAsync(newUser));
+    const newUserInfo = { ...userInfo, addresses: [...userInfo.addresses] };
+    newUserInfo.addresses.splice(index, 1, updatedAddress);
+    dispatch(updateUserAsync(newUserInfo));
     setSelectedAddressIndex(-1);
   };
   const handleEditForm = (index) => {
     setSelectedAddressIndex(index);
-    const selectedAddress = user.addresses[index];
+    const selectedAddress = userInfo.addresses[index];
     setValue("name", selectedAddress.name);
     setValue("email", selectedAddress.email);
     setValue("phone", selectedAddress.phone);
@@ -35,9 +35,9 @@ const UserProfile = () => {
     setValue("pincode", selectedAddress.pincode);
   };
   const handleRemove = (index) => {
-    const newUser = { ...user, addresses: [...user.addresses] };
-    newUser.addresses.splice(index, 1);
-    dispatch(updateUserAsync(newUser));
+    const user = { ...userInfo, addresses: [...userInfo.addresses] };
+    user.addresses.splice(index, 1);
+    dispatch(updateUserAsync(user));
   };
 
   return (
@@ -47,14 +47,14 @@ const UserProfile = () => {
           <h1
             className={`text-4xl font-bold tracking-tight text-gray-900 mb-4`}
           >
-            {user.name ? user.name : "New User"}
+            {userInfo.name ? userInfo.name : "New User"}
           </h1>
           <h3 className="uppercase tracking-widest inline-flex items-center rounded-md bg-indigo-50 px-2 py-1 text-xl font-medium text-indigo-700 ring-1 ring-inset ring-indigo-700/10">
-            {user.role}
+            {userInfo.role}
           </h3>
         </div>
         <h3 className={`text-xl tracking-tight text-gray-900 mb-4`}>
-          email address: <span className="font-bold">{user.email}</span>
+          email address: <span className="font-bold">{userInfo.email}</span>
         </h3>
       </div>
 
@@ -79,8 +79,8 @@ const UserProfile = () => {
             onSubmit={handleSubmit((data) => {
               dispatch(
                 updateUserAsync({
-                  ...user,
-                  addresses: [data, ...user.addresses],
+                  ...userInfo,
+                  addresses: [data, ...userInfo.addresses],
                 })
               );
               reset();
@@ -281,7 +281,7 @@ const UserProfile = () => {
           </form>
         )}
         <ul className="divide-y divide-gray-100">
-          {user.addresses.map((address, index) => (
+          {userInfo.addresses.map((address, index) => (
             <div key={index}>
               <li className="flex gap-x-5 divide-x divide-gray-100">
                 <div className="flex justify-between gap-x-6 py-5 flex-grow">
