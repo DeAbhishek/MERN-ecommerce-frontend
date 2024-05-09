@@ -12,8 +12,13 @@ export const fetchProductsByFilter = async (nwArr) => {
   }
   let sortString = nwArr[1];
   let pageString = nwArr[2];
-  const response = await axios.get(
-    `${PRODUCT_URL}?${pageString}&${sortString}&${filterString}`
+  let queryString = `${pageString}&${sortString}&${filterString}`;
+  if (nwArr[3]) {
+    queryString = `admin=true&${queryString}`;
+  }
+  const response = await axios.get(`${PRODUCT_URL}?${queryString}`);
+  console.log(
+    `${PRODUCT_URL}?${queryString}`
   );
   const totalItems = await response.headers.get("X-Total-Count");
   return {

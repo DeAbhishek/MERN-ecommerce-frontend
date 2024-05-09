@@ -19,7 +19,7 @@ const AdminProductList = () => {
   const status = useSelector(selectedProductStatus);
 
   useEffect(() => {
-    let nwArr = ["", "", "_page=1&_limit=9"];
+    let nwArr = ["", "", "_page=1&_limit=9", true];
     dispatch(fetchProductsByFilterAsync(nwArr));
     dispatch(fetchBrandsAsync());
     dispatch(fetchCategoriesAsync());
@@ -36,7 +36,6 @@ const AdminProductList = () => {
         wrapperStyle={{}}
         wrapperClass="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       />
-
 
       <div className="bg-white">
         <div className="mx-auto max-w-2xl px-4 sm:px-3 lg:max-w-7xl lg:px-8">

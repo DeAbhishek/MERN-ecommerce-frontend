@@ -18,7 +18,7 @@ export const fetchAllOrders = async ({ page, sort }) => {
 };
 
 export const updateOrder = async (updatedOrder) => {
-  const { data } = await axios.put(
+  const { data } = await axios.patch(
     `${ORDER_URL}/${updatedOrder.id}`,
     updatedOrder
   );
