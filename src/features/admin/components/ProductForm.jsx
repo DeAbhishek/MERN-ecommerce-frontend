@@ -99,8 +99,10 @@ const ProductForm = () => {
           if (params.id) {
             product.id = params.id;
             dispatch(updateProductAsync(product));
+            alert.success("Product updated successfully!");
           } else {
             dispatch(createProductAsync(product));
+            alert.success("Product created successfully!");
           }
         })}
       >
