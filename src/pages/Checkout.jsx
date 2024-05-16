@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import Cart from "../components/Cart";
-import { selectCart } from "../features/cart/cartSlice";
+import { selectCart } from "../features/cart/CartSlice";
 import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { selectUserInfo, updateUserAsync } from "../features/user/userSlice";

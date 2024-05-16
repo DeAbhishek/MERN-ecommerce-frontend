@@ -1,6 +1,10 @@
 {
   "name": "mern-ecommerce-frontend",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeAbhishek/MERN-ecommerce-frontend.git"
+  },
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.7.18",

@@ -6,7 +6,7 @@ import {
   selectCart,
   selectCartStatus,
   updateCartAsync,
-} from "../features/cart/cartSlice";
+} from "../features/cart/CartSlice";
 import { discountPrice } from "../constant";
 import { Grid } from "react-loader-spinner";
 import Modals from "./Modals";

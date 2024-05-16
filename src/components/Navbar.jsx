@@ -7,8 +7,8 @@ import {
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectCart } from "../features/cart/cartSlice";
-import { selectLoggedInUser } from "../features/auth/authSlice";
+import { selectCart } from "../features/cart/CartSlice";
+import { selectLoggedInUser } from "../features/auth/AuthSlice";
 
 const user = {
   name: "Tom Cook",

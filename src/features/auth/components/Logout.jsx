@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectLoggedInUser, signOutAsync } from "../authSlice";
+import { selectLoggedInUser, signOutAsync } from "../AuthSlice";
 import { useEffect } from "react";
 import { Navigate } from "react-router-dom";
 

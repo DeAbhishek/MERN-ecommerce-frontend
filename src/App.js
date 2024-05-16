@@ -1,8 +1,8 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { selectLoggedInUser } from "./features/auth/authSlice";
-import { fetchItemsByUserIdAsync } from "./features/cart/cartSlice";
+import { selectLoggedInUser } from "./features/auth/AuthSlice";
+import { fetchItemsByUserIdAsync } from "./features/cart/CartSlice";
 import { fetchLoggedInUserAsync } from "./features/user/userSlice";
 import "./App.css";
 import Home from "./pages/Home";

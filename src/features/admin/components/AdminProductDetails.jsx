@@ -7,7 +7,7 @@ import {
   fetchProductDetailsByIdAsync,
   selectedProductDetails,
 } from "../../product/productSlice";
-import { addToCartAsync } from "../../cart/cartSlice";
+import { addToCartAsync } from "../../cart/CartSlice";
 import { selectUserInfo } from "../../user/userSlice";
 import { discountPrice } from "../../../constant";
 

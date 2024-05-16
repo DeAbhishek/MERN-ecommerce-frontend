@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useParams } from "react-router-dom";
-import { resetCartAsync } from "../cart/cartSlice";
+import { resetCartAsync } from "../cart/CartSlice";
 import { resetCurrentOrder } from "./orderSlice";
 import { selectUserInfo } from "../user/userSlice";
 

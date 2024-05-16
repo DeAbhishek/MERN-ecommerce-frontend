@@ -9,7 +9,7 @@ import {
   selectedProductDetails,
   selectedProductStatus,
 } from "../productSlice";
-import { addToCartAsync, selectCart } from "../../cart/cartSlice";
+import { addToCartAsync, selectCart } from "../../cart/CartSlice";
 import { selectUserInfo } from "../../user/userSlice";
 import { discountPrice } from "../../../constant";
 import { Grid } from "react-loader-spinner";
