@@ -11,11 +11,11 @@ export const fetchLoggedInUserOrder = async (userID) => {
 };
 
 export const updateUser = async (updatedUserData) => {
-  const { data } = await axios.patch(`${USER_URL}/${updatedUserData.id}`, updatedUserData);
+  const { data } = await axios.patch(USER_URL, updatedUserData);
   return data;
 };
 
-export const fetchLoggedInUser = async (userID) => {
-  const { data } = await axios.get(`${USER_URL}/${userID}`);
+export const fetchLoggedInUser = async () => {
+  const { data } = await axios.get(USER_URL);
   return data;
 };

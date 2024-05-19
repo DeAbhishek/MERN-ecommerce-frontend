@@ -8,7 +8,7 @@ import {
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCart } from "../features/cart/CartSlice";
-import { selectLoggedInUser } from "../features/auth/AuthSlice";
+import { selectUserInfo } from "../features/user/userSlice";
 
 const user = {
   name: "Tom Cook",
@@ -33,7 +33,7 @@ function classNames(...classes) {
 
 const Navbar = ({ children, pageName = "" }) => {
   const cart = useSelector(selectCart);
-  const loginRes = useSelector(selectLoggedInUser);
+  const userInfo = useSelector(selectUserInfo);
 
   return (
     <div className="min-h-full">
@@ -54,7 +54,7 @@ const Navbar = ({ children, pageName = "" }) => {
                     <div className="ml-10 flex items-baseline space-x-4">
                       {navigation.map(
                         (item) =>
-                          item[loginRes?.role] && (
+                          item[userInfo?.role] && (
                             <Link
                               key={item.name}
                               to={item.link}
@@ -86,7 +86,7 @@ const Navbar = ({ children, pageName = "" }) => {
                           aria-hidden="true"
                         />
                       </button>
-                      {loginRes && cart.length > 0 && (
+                      {userInfo && cart.length > 0 && (
                         <span className="relative z-10 inline-flex items-center rounded-md bg-red-50 px-2 py-1 mb-7 -ms-3 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
                           {cart.length}
                         </span>
@@ -131,7 +131,7 @@ const Navbar = ({ children, pageName = "" }) => {
                               )}
                             </Menu.Item>
                           ))}
-                          {loginRes ? (
+                          {userInfo ? (
                             <Menu.Item>
                               {({ active }) => (
                                 <Link
@@ -184,7 +184,7 @@ const Navbar = ({ children, pageName = "" }) => {
               <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
                 {navigation.map(
                   (item) =>
-                    item[loginRes?.role] && (
+                    item[userInfo?.role] && (
                       <Link to={item.link} key={item.name}>
                         <Disclosure.Button
                           as="a"
@@ -247,7 +247,7 @@ const Navbar = ({ children, pageName = "" }) => {
                       </Disclosure.Button>
                     </Link>
                   ))}
-                  {loginRes ? (
+                  {userInfo ? (
                     <Link to="/logout">
                       <Disclosure.Button className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">
                         Log out

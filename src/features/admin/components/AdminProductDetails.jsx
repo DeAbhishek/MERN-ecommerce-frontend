@@ -8,7 +8,6 @@ import {
   selectedProductDetails,
 } from "../../product/productSlice";
 import { addToCartAsync } from "../../cart/CartSlice";
-import { selectUserInfo } from "../../user/userSlice";
 import { discountPrice } from "../../../constant";
 
 const colors = [
@@ -39,14 +38,13 @@ function classNames(...classes) {
 
 const AdminProductDetails = () => {
   const product = useSelector(selectedProductDetails);
-  const userInfo = useSelector(selectUserInfo);
   const dispatch = useDispatch();
   const params = useParams();
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
 
   const handleCart = (item) => {
-    const addedProduct = { ...product, quantity: 1, user: userInfo.id };
+    const addedProduct = { ...product, quantity: 1 };
     delete addedProduct["id"];
     dispatch(addToCartAsync(addedProduct));
   };

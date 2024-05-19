@@ -23,7 +23,7 @@ export const updateUserAsync = createAsyncThunk("user/updateUser", (updatedUserD
 
 export const fetchLoggedInUserAsync = createAsyncThunk(
   "user/fetchLoggedInUser",
-  (userID) => fetchLoggedInUser(userID)
+  () => fetchLoggedInUser()
 );
 
 export const userSlice = createSlice({

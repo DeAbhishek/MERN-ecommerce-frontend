@@ -28,8 +28,8 @@ const Cart = ({ headerMargin, children }) => {
     dispatch(updateCartAsync({ id: item.id, quantity: +e.target.value }));
   };
 
-  const handleDelete = (productId) => {
-    dispatch(deleteItemFromCartAsync(productId));
+  const handleDelete = (itemId) => {
+    dispatch(deleteItemFromCartAsync(itemId));
   };
 
   return !cart.length ? (

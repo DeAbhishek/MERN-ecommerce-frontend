@@ -8,8 +8,8 @@ export const addToCart = async (item) => {
   return response.data;
 };
 
-export const fetchItemsByUserId = async (userId) => {
-  const response = await axios.get(`${CART_URL}?user=${userId}`);
+export const fetchItemsByUserId = async () => {
+  const response = await axios.get(CART_URL);
   return response.data;
 };
 
@@ -26,8 +26,8 @@ export const deleteItemFromCart = async (itemId) => {
   return itemId;
 };
 
-export const resetCart = async (userId) => {
-  const { data } = await axios.get(`${CART_URL}?user=${userId}`);
+export const resetCart = async () => {
+  const { data } = await axios.get(CART_URL);
   for (let item of data) {
     await axios.delete(`${CART_URL}/${item.id}`);
   }

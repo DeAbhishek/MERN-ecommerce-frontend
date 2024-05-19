@@ -10,7 +10,6 @@ import {
   selectedProductStatus,
 } from "../productSlice";
 import { addToCartAsync, selectCart } from "../../cart/CartSlice";
-import { selectUserInfo } from "../../user/userSlice";
 import { discountPrice } from "../../../constant";
 import { Grid } from "react-loader-spinner";
 
@@ -44,7 +43,6 @@ const ProductDetails = () => {
   const alert = useAlert();
   const product = useSelector(selectedProductDetails);
   const status = useSelector(selectedProductStatus);
-  const userInfo = useSelector(selectUserInfo);
   const cartItem = useSelector(selectCart);
   const dispatch = useDispatch();
   const params = useParams();
@@ -58,7 +56,6 @@ const ProductDetails = () => {
       const addedProduct = {
         product: product.id,
         quantity: 1,
-        user: userInfo.id,
       };
       dispatch(addToCartAsync(addedProduct));
       alert.success("Item Added to Cart");
